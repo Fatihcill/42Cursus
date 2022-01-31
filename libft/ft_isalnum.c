@@ -5,15 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/06 02:23:19 by fcil              #+#    #+#             */
-/*   Updated: 2022/01/06 02:23:22 by fcil             ###   ########.fr       */
+/*   Created: 2022/01/21 19:06:55 by fcil              #+#    #+#             */
+/*   Updated: 2022/01/21 19:07:03 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-int		ft_isalnum(int c)
+int	ft_isalnum(int c)
 {
-	return ((c >= 65 && c <= 90)
-			|| (c >= 97 && c <= 122)
-			|| (c >= 48 && c <= 57));
+	return (ft_isalpha(c) || ft_isdigit(c));
 }

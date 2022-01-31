@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 15:54:34 by rchallie          #+#    #+#             */
-/*   Updated: 2019/10/16 17:50:37 by rchallie         ###   ########.fr       */
+/*   Created: 2022/01/21 18:57:53 by fcil              #+#    #+#             */
+/*   Updated: 2022/01/21 19:03:17 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,19 @@
 
 int	ft_atoi(const char *str)
 {
-	long	i;
-	long	nbr;
-	int		isneg;
+	int	n;
+	int	negative;
 
-	i = 0;
-	nbr = 0;
-	isneg = 0;
-	while (str[i] != '\0' && (str[i] == 32 || str[i] == '\t' || str[i] == '\n'
-			|| str[i] == '\r' || str[i] == '\v' || str[i] == '\f'))
-		i++;
-	if (str[i] != '\0' && str[i] == '-')
-	{
-		isneg = 1;
-		i++;
-	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] != '\0' && ft_isdigit(str[i]))
-		nbr = (nbr * 10) + (str[i++] - '0');
-	if (isneg == 1)
-		return (-nbr);
-	return (nbr);
+	while ((*str >= 9 && *str <= 13) || *str == ' ')
+		str++;
+	negative = 0;
+	if (*str == '-' || *str == '+')
+		if (*str++ == '-')
+			negative = 1 - negative;
+	n = 0;
+	while (*str >= '0' && *str <= '9')
+		n = n * 10 + *str++ - '0';
+	if (negative)
+		n *= -1;
+	return (n);
 }

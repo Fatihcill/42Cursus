@@ -3,28 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rchallie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 12:24:59 by rchallie          #+#    #+#             */
-/*   Updated: 2019/10/14 16:58:55 by rchallie         ###   ########.fr       */
+/*   Created: 2022/01/21 17:33:31 by fcil              #+#    #+#             */
+/*   Updated: 2022/01/21 18:08:08 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	const unsigned char	*ss1;
-	const unsigned char	*ss2;
-	size_t				i;
+	unsigned char	*buff_s1;
+	unsigned char	*buff_s2;
+	unsigned int	i;
 
+	buff_s1 = (unsigned char *)s1;
+	buff_s2 = (unsigned char *)s2;
 	i = 0;
-	ss1 = (const unsigned char *)s1;
-	ss2 = (const unsigned char *)s2;
 	while (i < n)
 	{
-		if (ss1[i] != ss2[i])
-			return (ss1[i] - ss2[i]);
+		if (buff_s1[i] != buff_s2[i])
+			return (buff_s1[i] - buff_s2[i]);
 		i++;
 	}
 	return (0);

@@ -3,117 +3,68 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 10:51:19 by rchallie          #+#    #+#             */
-/*   Updated: 2019/10/23 10:19:55 by rchallie         ###   ########.fr       */
+/*   Created: 2022/01/21 19:57:33 by fcil              #+#    #+#             */
+/*   Updated: 2022/01/21 20:23:53 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_hm(char const *s, char c)
+//kaç adet string dizisi elemanı olduğunu hesaplar. 
+//"fatih-fatih-fatih" , '-' cevap 2 dir 2 adet ayırıcı var çünkü
+unsigned int	str_in_array(const char *s, char delimiter)
 {
-	size_t	nbr;
-	int		i;
+	unsigned int	qnt;
 
-	nbr = 0;
-	i = 0;
-	while (s[i])
+	qnt = 0;
+	while (*s)
 	{
-		while (s[i] == c)
-			i++;
-		if (i > 0 && s[i] && s[i - 1] == c)
-			nbr++;
-		if (s[i])
-			i++;
-	}
-	if (nbr == 0 && s[i - 1] == c)
-		return (0);
-	if (s[0] != c)
-		nbr++;
-	return (nbr);
-}
-
-static char		**ft_mal(char **strs, char const *s, char c)
-{
-	size_t	count;
-	int		i;
-	int		h;
-
-	count = 0;
-	i = 0;
-	h = 0;
-	while (s[h])
-	{
-		if (s[h] != c)
-			count++;
-		else if (h > 0 && s[h - 1] != c)
+		if (*s == delimiter)
+			s++;
+		else
 		{
-			strs[i] = malloc(sizeof(char) * (count + 1));
-			if (!strs[i])
-				return (0);
-			count = 0;
-			i++;
+			while (*s != delimiter && *s)
+				s++;
+			qnt++;
 		}
-		if (s[h + 1] == '\0' && s[h] != c)
-			if (!(strs[i] = malloc(sizeof(char) * count + 1)))
-				return (0);
-		h++;
 	}
-	return (strs);
+	return (qnt);
 }
 
-static char		**ft_cpy(char **strs, char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	int i;
-	int j;
-	int h;
+	char			**arr;
+	unsigned int	j;
+	unsigned int	a;
 
-	i = 0;
-	j = 0;
-	h = 0;
-	while (s[h])
-	{
-		if (s[h] != c)
-			strs[i][j++] = s[h];
-		else if (h > 0 && s[h - 1] != c)
-			if (h != 0)
-			{
-				strs[i][j] = '\0';
-				j = 0;
-				i++;
-			}
-		if (s[h + 1] == '\0' && s[h] != c)
-			strs[i][j] = '\0';
-		h++;
-	}
-	return (strs);
-}
-
-char			**ft_split(char const *s, char c)
-{
-	char	**rtn;
-	int		nbr_w;
-
-	if (!s || !*s)
-	{
-		if (!(rtn = malloc(sizeof(char *) * 1)))
-			return (NULL);
-		*rtn = (void *)0;
-		return (rtn);
-	}
-	nbr_w = ft_hm(s, c);
-	rtn = malloc(sizeof(char *) * (nbr_w + 1));
-	if (!rtn)
-		return (0);
-	if (ft_mal(rtn, s, c) != 0)
-		ft_cpy(rtn, s, c);
-	else
-	{
-		free(rtn);
+	arr = (char **) ft_calloc(str_in_array(s, c) + 1, sizeof(char *));
+	if (!arr)
 		return (NULL);
+	a = -1;
+	while (*s)
+	{
+		if (*s == c)
+			s++;
+		else
+		{
+			j = 0;
+			while (*s != c && *s)
+			{
+				s++;
+				j++;
+			}
+			arr[++a] = (char *) ft_calloc(j + 1, sizeof(char));
+			ft_strlcpy(arr[a], s - j, j + 1);
+		}
 	}
-	rtn[nbr_w] = (void *)0;
-	return (rtn);
+	return (arr);
 }
+//53. satırdaki while da ayırıcı varsa geçiyoruz. 
+//58. satırda bizim string dizimizin ilk elemanına yer açıyoruz. 
+//j değeri bizim stringin uzunluğu fatih mesela 5 lik alan null ile 6
+// 59 da arr nin a nıncı değerine s-j diyerek oradan başladığımızı belirterek 
+//j kadar yazdırıyoruz. yani fatih cil de ilkte s değeri fatih i bitirir ve
+//boslukta durur. sonra j 5 olur. s - 5 diyerek, fatih in f sine geri geliriz.
+// j + 1 diyerekte null ile birlikte 6 lık alana bunu yazdırır bknz ft_strlcpy.
