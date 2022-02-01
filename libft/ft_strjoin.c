@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:45:36 by fcil              #+#    #+#             */
-/*   Updated: 2022/01/21 19:54:50 by fcil             ###   ########.fr       */
+/*   Updated: 2022/02/01 12:23:53 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	unsigned int	j;
 	char			*s3;
 
+	if (!s1 || !s2)
+		return (NULL);
 	s3 = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!s3)
 		return (NULL);

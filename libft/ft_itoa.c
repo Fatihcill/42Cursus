@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 20:20:33 by fcil              #+#    #+#             */
-/*   Updated: 2022/01/21 20:49:35 by fcil             ###   ########.fr       */
+/*   Updated: 2022/02/01 12:00:32 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ char	*ft_itoa(int n)
 
 	digit = get_len(n);
 	str = (char *) ft_calloc(digit + 1, sizeof(char));
+	if (!str)
+		return (NULL);
 	if (n == 0)
 		*str = '0';
 	else if (n < 0)
@@ -49,8 +51,7 @@ char	*ft_itoa(int n)
 	}
 	while (n != 0)
 	{
-		digit--;
-		*(str + digit) = (n % 10) + '0';
+		*(str + --digit) = (n % 10) + '0';
 		n = n / 10;
 	}
 	return (str);

@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 20:51:38 by fcil              #+#    #+#             */
-/*   Updated: 2022/01/21 21:08:43 by fcil             ###   ########.fr       */
+/*   Updated: 2022/02/01 12:38:11 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	i;
 	char			*str;
 
+	if (!s || !f)
+		return (NULL);
 	i = 0;
 	str = (char *) ft_calloc(ft_strlen(s) + 1, sizeof(char));
 	if (!str)

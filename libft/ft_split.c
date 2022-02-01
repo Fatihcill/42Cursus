@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:57:33 by fcil              #+#    #+#             */
-/*   Updated: 2022/01/21 20:23:53 by fcil             ###   ########.fr       */
+/*   Updated: 2022/02/01 12:37:05 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ char	**ft_split(char const *s, char c)
 	unsigned int	j;
 	unsigned int	a;
 
+	if (!s)
+		return (NULL);
 	arr = (char **) ft_calloc(str_in_array(s, c) + 1, sizeof(char *));
 	if (!arr)
 		return (NULL);
@@ -50,21 +52,18 @@ char	**ft_split(char const *s, char c)
 		else
 		{
 			j = 0;
-			while (*s != c && *s)
-			{
+			while (*s != c && *s && ++j)
 				s++;
-				j++;
-			}
 			arr[++a] = (char *) ft_calloc(j + 1, sizeof(char));
 			ft_strlcpy(arr[a], s - j, j + 1);
 		}
 	}
 	return (arr);
 }
-//53. satırdaki while da ayırıcı varsa geçiyoruz. 
-//58. satırda bizim string dizimizin ilk elemanına yer açıyoruz. 
+//55. satırdaki while da ayırıcı varsa geçiyoruz. 
+//57. satırda bizim string dizimizin ilk elemanına yer açıyoruz. 
 //j değeri bizim stringin uzunluğu fatih mesela 5 lik alan null ile 6
-// 59 da arr nin a nıncı değerine s-j diyerek oradan başladığımızı belirterek 
+// 58 da arr nin a nıncı değerine s-j diyerek oradan başladığımızı belirterek 
 //j kadar yazdırıyoruz. yani fatih cil de ilkte s değeri fatih i bitirir ve
 //boslukta durur. sonra j 5 olur. s - 5 diyerek, fatih in f sine geri geliriz.
 // j + 1 diyerekte null ile birlikte 6 lık alana bunu yazdırır bknz ft_strlcpy.
