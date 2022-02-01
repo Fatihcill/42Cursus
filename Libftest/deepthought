@@ -3,7 +3,7 @@ $> hostname; uname -msr
 k2m16s09.42kocaeli.com.tr
 Darwin 19.6.0 x86_64
 $> date
-Tue Feb  1 16:11:03 +03 2022
+Tue Feb  1 16:50:55 +03 2022
 $> gcc --version
 Apple clang version 12.0.0 (clang-1200.0.32.28)
 Target: x86_64-apple-darwin19.6.0
@@ -69,7 +69,7 @@ ar -rc libft.a ft_atoi.o ft_bzero.o ft_calloc.o ft_isalnum.o ft_isalpha.o ft_isa
 make: *** No rule to make target `bonus'.  Stop.
 
 $> ls -la libft.a
--rw-r--r--  1 fcil  2021_kocaeli  39280 Feb  1 16:11 /Users/fcil/Desktop/42Cursus/Libftest/tmp_tests_dir/libft.a
+-rw-r--r--  1 fcil  2021_kocaeli  39280 Feb  1 16:50 /Users/fcil/Desktop/42Cursus/Libftest/tmp_tests_dir/libft.a
 
 = Part1_functions ==============================================================
 
