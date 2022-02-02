@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/01 15:49:07 by fcil              #+#    #+#             */
-/*   Updated: 2022/02/02 16:26:58 by fcil             ###   ########.fr       */
+/*   Created: 2022/01/12 04:29:26 by fcil              #+#    #+#             */
+/*   Updated: 2022/02/02 12:27:11 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int	i;
+	char		*destc;
+	const char	*srcc;
 
-	i = 1;
-	if (!lst)
+	if ((dest == src) || n == 0)
+		return (dest);
+	if (!dest && !src)
 		return (0);
-	while (lst->next)
-	{
-		lst = lst->next;
-		i++;
-	}
-	return (i);
+	destc = (char *)dest;
+	srcc = (const char *)src;
+	while (n--)
+		destc[n] = srcc[n];
+	return (dest);
 }
-// 20. satirda lst bos ise 0 doner
-// 22 de lst nin next i bos olana dek, devam edilir
-// sonunda i return edilir.
+// src den deste n kadar kopyalar.

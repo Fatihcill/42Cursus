@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/01 15:49:07 by fcil              #+#    #+#             */
-/*   Updated: 2022/02/02 16:26:58 by fcil             ###   ########.fr       */
+/*   Created: 2022/01/21 19:09:29 by fcil              #+#    #+#             */
+/*   Updated: 2022/02/02 12:26:56 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+int	ft_isascii(int c)
 {
-	int	i;
-
-	i = 1;
-	if (!lst)
-		return (0);
-	while (lst->next)
-	{
-		lst = lst->next;
-		i++;
-	}
-	return (i);
+	return (c >= 0 && c <= 127);
 }
-// 20. satirda lst bos ise 0 doner
-// 22 de lst nin next i bos olana dek, devam edilir
-// sonunda i return edilir.
+// verilen karakterin ascii bir deger olup olmadigi kontrol edilir.

@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/01 15:49:07 by fcil              #+#    #+#             */
-/*   Updated: 2022/02/02 16:26:58 by fcil             ###   ########.fr       */
+/*   Created: 2022/02/02 14:45:02 by fcil              #+#    #+#             */
+/*   Updated: 2022/02/02 14:46:30 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	int	i;
+	unsigned int	i;
 
-	i = 1;
-	if (!lst)
-		return (0);
-	while (lst->next)
+	if (s)
 	{
-		lst = lst->next;
-		i++;
+		i = 0;
+		while (s[i])
+		{
+			f(i, &s[i]);
+			i++;
+		}
 	}
-	return (i);
 }
-// 20. satirda lst bos ise 0 doner
-// 22 de lst nin next i bos olana dek, devam edilir
-// sonunda i return edilir.
+//s stringindeki her karakterin adresine tek tek f fonksiyonu uygulanir.

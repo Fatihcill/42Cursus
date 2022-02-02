@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/01 15:49:07 by fcil              #+#    #+#             */
-/*   Updated: 2022/02/02 16:26:58 by fcil             ###   ########.fr       */
+/*   Created: 2022/01/21 18:39:51 by fcil              #+#    #+#             */
+/*   Updated: 2022/02/02 12:37:32 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
+	int	s_len;
 
-	i = 1;
-	if (!lst)
-		return (0);
-	while (lst->next)
+	s_len = ft_strlen(s);
+	while (s_len >= 0)
 	{
-		lst = lst->next;
-		i++;
+		if (s[s_len] == (char)c)
+			return ((char *)&s[s_len]);
+		s_len--;
 	}
-	return (i);
+	return (NULL);
 }
-// 20. satirda lst bos ise 0 doner
-// 22 de lst nin next i bos olana dek, devam edilir
-// sonunda i return edilir.
+//strchr nin tersi.

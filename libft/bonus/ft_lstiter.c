@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:55:56 by fcil              #+#    #+#             */
-/*   Updated: 2022/02/01 16:10:48 by fcil             ###   ########.fr       */
+/*   Updated: 2022/02/02 16:35:10 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,3 +22,4 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 		lst = lst->next;
 	}
 }
+//listenin her elemani icin f fonksiyonu uygulanir.

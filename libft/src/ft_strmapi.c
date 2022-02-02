@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/01 15:49:07 by fcil              #+#    #+#             */
-/*   Updated: 2022/02/02 16:26:58 by fcil             ###   ########.fr       */
+/*   Created: 2022/01/21 20:51:38 by fcil              #+#    #+#             */
+/*   Updated: 2022/02/02 14:34:02 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	i;
+	unsigned int	i;
+	char			*str;
 
-	i = 1;
-	if (!lst)
-		return (0);
-	while (lst->next)
+	if (!s || !f)
+		return (NULL);
+	i = 0;
+	str = (char *) ft_calloc(ft_strlen(s) + 1, sizeof(char));
+	if (!str)
+		return (NULL);
+	while (s[i])
 	{
-		lst = lst->next;
+		str[i] = f(i, s[i]);
 		i++;
 	}
-	return (i);
+	return (str);
 }
-// 20. satirda lst bos ise 0 doner
-// 22 de lst nin next i bos olana dek, devam edilir
-// sonunda i return edilir.
+// ilk parametre, normal string, ikinci parametre fonksiyon pointeri.
+//23 -yeni str oluşturuluyor.
+// 28 her char için fonksiyon uygulanıyor.

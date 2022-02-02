@@ -1,9 +1,9 @@
 = Host-specific information ====================================================
 $> hostname; uname -msr
-k2m16s09.42kocaeli.com.tr
+k2m03s02.42kocaeli.com.tr
 Darwin 19.6.0 x86_64
 $> date
-Tue Feb  1 16:50:55 +03 2022
+Wed Feb  2 11:03:23 +03 2022
 $> gcc --version
 Apple clang version 12.0.0 (clang-1200.0.32.28)
 Target: x86_64-apple-darwin19.6.0
@@ -66,10 +66,10 @@ clang -Wall -Wextra -Werror -c ft_substr.c -o ft_substr.o
 clang -Wall -Wextra -Werror -c ft_tolower.c -o ft_tolower.o
 clang -Wall -Wextra -Werror -c ft_toupper.c -o ft_toupper.o
 ar -rc libft.a ft_atoi.o ft_bzero.o ft_calloc.o ft_isalnum.o ft_isalpha.o ft_isascii.o ft_isdigit.o ft_isprint.o ft_itoa.o ft_lstadd_back.o ft_lstadd_front.o ft_lstclear.o ft_lstdelone.o ft_lstiter.o ft_lstlast.o ft_lstmap.o ft_lstnew.o ft_lstsize.o ft_memccpy.o ft_memchr.o ft_memcmp.o ft_memcpy.o ft_memmove.o ft_memset.o ft_putchar_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_putstr_fd.o ft_split.o ft_strchr.o ft_strdup.o ft_strjoin.o ft_strlcat.o ft_strlcpy.o ft_strlen.o ft_strmapi.o ft_strncmp.o ft_strnstr.o ft_strrchr.o ft_strtrim.o ft_substr.o ft_tolower.o ft_toupper.o
-make: *** No rule to make target `bonus'.  Stop.
+make: Nothing to be done for `bonus'.
 
 $> ls -la libft.a
--rw-r--r--  1 fcil  2021_kocaeli  39280 Feb  1 16:50 /Users/fcil/Desktop/42Cursus/Libftest/tmp_tests_dir/libft.a
+-rw-r--r--  1 fcil  2021_kocaeli  39280 Feb  2 11:03 /Users/fcil/Desktop/42Cursus/Libftest/tmp_tests_dir/libft.a
 
 = Part1_functions ==============================================================
 

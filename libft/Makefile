@@ -6,14 +6,14 @@
 #    By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 17:58:34 by fcil              #+#    #+#              #
-#    Updated: 2022/02/01 17:14:21 by fcil             ###   ########.fr        #
+#    Updated: 2022/02/02 16:55:20 by fcil             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 CC = clang
 FLAGS = -Wall -Wextra -Werror
-SRC=$(wildcard *.c)
+SRC=$(wildcard src/*.c)
 
 OBJ = $(SRC:.c=.o)
 
