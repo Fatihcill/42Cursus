@@ -3,7 +3,7 @@ $> hostname; uname -msr
 k2m08s04.42kocaeli.com.tr
 Darwin 19.6.0 x86_64
 $> date
-Thu Feb  3 16:48:56 +03 2022
+Thu Feb  3 16:58:30 +03 2022
 $> gcc --version
 Apple clang version 12.0.0 (clang-1200.0.32.28)
 Target: x86_64-apple-darwin19.6.0
@@ -69,7 +69,7 @@ gcc -Wall -Wextra -Werror -c ft_lstsize.c -o ft_lstsize.o
 ar -rc libft.a ./ft_atoi.o ./ft_bzero.o ./ft_calloc.o ./ft_isalnum.o ./ft_isalpha.o ./ft_isascii.o ./ft_isdigit.o ./ft_isprint.o ./ft_itoa.o ./ft_memchr.o ./ft_memcmp.o ./ft_memcpy.o ./ft_memmove.o ./ft_memset.o ./ft_putchar_fd.o ./ft_putendl_fd.o ./ft_putnbr_fd.o ./ft_putstr_fd.o ./ft_split.o ./ft_strchr.o ./ft_strdup.o ./ft_striteri.o ./ft_strjoin.o ./ft_strlcat.o ./ft_strlcpy.o ./ft_strlen.o ./ft_strmapi.o ./ft_strncmp.o ./ft_strnstr.o ./ft_strrchr.o ./ft_strtrim.o ./ft_substr.o ./ft_tolower.o ./ft_toupper.o ft_lstadd_back.o ft_lstadd_front.o ft_lstclear.o ft_lstdelone.o ft_lstiter.o ft_lstlast.o ft_lstmap.o ft_lstnew.o ft_lstsize.o
 
 $> ls -la libft.a
--rw-r--r--  1 fcil  2021_kocaeli  39216 Feb  3 16:48 /Users/fcil/Desktop/42Cursus/Libftest/tmp_tests_dir/libft.a
+-rw-r--r--  1 fcil  2021_kocaeli  39160 Feb  3 16:58 /Users/fcil/Desktop/42Cursus/Libftest/tmp_tests_dir/libft.a
 
 = Part1_functions ==============================================================
 
@@ -1225,10 +1225,6 @@ Diff OK :D
 
 = ft_strtrim ===================================================================
 $> norminette ft_strtrim.c | grep -E '(Error|Warning)'
-/Users/fcil/Desktop/42Cursus/Libftest/tmp_tests_dir/ft_strtrim.c: Error!
-Error: LINE_TOO_LONG        (line:  58, col:   1):	line too long
-Error: LINE_TOO_LONG        (line:  58, col:  89):	line too long
-Norme check failed
 $> clang -Wextra -Wall -Werror /Users/fcil/Desktop/42Cursus/Libftest/tests/Part2_functions/ft_strtrim/main.c -L/Users/fcil/Desktop/42Cursus/Libftest/tmp_tests_dir -lft -I/Users/fcil/Desktop/42Cursus/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
