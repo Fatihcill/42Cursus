@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:54:45 by fcil              #+#    #+#             */
-/*   Updated: 2022/02/02 14:23:54 by fcil             ###   ########.fr       */
+/*   Updated: 2022/02/03 16:49:35 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 //ft_checkset de karakterde string aranir.
 //39 da baslangictaki karakter icin kirpma yapiyoruz
 //41 de sondaki karakterler icin kirpma yapiyoruz.
-// 43 de kirpmadan sonra kalan byte sayisini hesapliyoruz ve yeni bir str olusturuyoruz.
+// 43 de kirpmadan sonra kalan byte sayisini hesapliyoruz 
+// ve yeni bir str olusturuyoruz.
 // 48 de yeni str ye verileri aktiriyoruz.
 // ve return ediyoruz.
