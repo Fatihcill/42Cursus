@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:18:13 by fcil              #+#    #+#             */
-/*   Updated: 2022/02/02 12:27:59 by fcil             ###   ########.fr       */
+/*   Updated: 2022/02/05 12:25:47 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,12 @@ void	*ft_memmove(void *dest, const void *src, size_t len)
 		*d++ = *s++;
 	return (dest);
 }
+
+// int main()
+// {
+//  char a[] = "fatihcil";
+//  printf("%s",ft_memmove((a + 2) , a, 4));
+// }
 // s nin adresi d den kucuk oldugunda, 
 // sondan baslanir overleap sorunu olmamasi icin.
 // memcpyden farki budur, 
