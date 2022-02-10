@@ -6,14 +6,11 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:58:57 by fcil              #+#    #+#             */
-/*   Updated: 2022/02/05 13:06:29 by fcil             ###   ########.fr       */
+/*   Updated: 2022/02/04 10:30:43 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
-#include <string.h>
-#include <stdio.h>
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void *))
 {

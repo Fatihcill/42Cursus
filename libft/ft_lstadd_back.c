@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:51:38 by fcil              #+#    #+#             */
-/*   Updated: 2022/02/02 16:29:59 by fcil             ###   ########.fr       */
+/*   Updated: 2022/02/06 19:27:30 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		while (ptr->next != NULL)
 			ptr = ptr->next;
 		ptr->next = new;
-		new->next = NULL;
 	}
 }
 

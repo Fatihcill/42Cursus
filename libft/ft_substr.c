@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:33:57 by fcil              #+#    #+#             */
-/*   Updated: 2022/02/02 14:13:45 by fcil             ###   ########.fr       */
+/*   Updated: 2022/02/06 19:32:06 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,29 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*new_str;
 	size_t	i;
 	size_t	j;
+	char	*final;
 
-	new_str = (char *)malloc(len + 1);
-	if (!s || !new_str)
-		return (0);
-	i = start;
-	j = 0;
-	while (i < ft_strlen(s) && j < len)
-		new_str[j++] = s[i++];
-	new_str[j] = '\0';
-	return (new_str);
+	if (s)
+	{		
+		if (start >= ft_strlen(s) || len == 0 || ft_strlen(s) == 0)
+			return (ft_strdup(""));
+		i = 0;
+		while (i < len && s[i + start] != '\0')
+			i++;
+		final = (char *) malloc((sizeof(char) * i) + 1);
+		if (!(final))
+			return (NULL);
+		j = 0;
+		while (j < i)
+		{
+			final[j] = s[start + j];
+			j++;
+		}
+		final[j] = '\0';
+		return (final);
+	}
+	return (NULL);
 }
 //start len arasi bir string olusturur, ve bu stringi return eder.
