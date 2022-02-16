@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 15:18:35 by fcil              #+#    #+#             */
-/*   Updated: 2022/02/13 16:15:31 by fcil             ###   ########.fr       */
+/*   Updated: 2022/02/15 15:52:48 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_read_to_left_str(int fd, char *left_str);
 char	*ft_get_line(char *left_str);
 char	*ft_new_left_str(char *left_str);
 //UTILS
-char	*ft_strchr(char *s, int c);
-char	*ft_strjoin(char *left_str, char *buff);
-size_t	ft_strlen(char *s);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strjoin(char *s1, char *s2);
+size_t	ft_strlen(const char *s);
 #endif
