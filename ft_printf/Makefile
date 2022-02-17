@@ -3,35 +3,53 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fatih <fatih@student.42.fr>                +#+  +:+       +#+         #
+#    By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/02/13 20:22:30 by fatih             #+#    #+#              #
-#    Updated: 2022/02/13 20:27:14 by fatih            ###   ########.fr        #
+#    Created: 2022/02/17 12:46:43 by fcil              #+#    #+#              #
+#    Updated: 2022/02/17 13:02:43 by fcil             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
-CC = gcc
-FLAGS = -Wall -Wextra -Werror
+#Variables
 
-SRC = $(wildcard *.c)
+NAME		= libftprintf.a
+INCLUDE		= include
+LIBFT		= libft
+CC			= gcc
+CFLAGS		= -Wall -Werror -Wextra
+RM			= rm -f
+AR			= ar rcs
 
+#Sources
+
+#SRC_FILES	=	ft_printf ft_printf_utils ft_print_ptr ft_print_unsigned ft_print_hex
+
+
+SRC	= $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
 
+all:		$(NAME)
+
+$(NAME):	$(OBJ)
+			make -C $(LIBFT)
+			cp libft/libft.a .
+			mv libft.a $(NAME)
+			$(AR) $(NAME) $(OBJ)
+
 %.o: %.c
-	$(CC) $(FLAGS) -c $< -o $@
+			@$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OBJ)
-		ar -rc $(NAME) $(OBJ)
+clean:
+			rm -f *.o
+			make clean -C $(LIBFT)
 
-all: $(NAME)
+fclean:		clean
+			@$(RM) -f $(NAME)
+			@$(RM) -f $(LIBFT)/libft.a
 
-clean: 
-	rm -f *.o
+re:			fclean all
 
-fclean: clean
-		rm -f $(NAME)
+norm:
+			@norminette $(SRC) $(INCLUDE) $(LIBFT) | grep -v Norme -B1 || true
 
-re: fclean all
-
-.PHONY: all clean fclean re
+.PHONY:		all clean fclean re norm
