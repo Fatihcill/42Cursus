@@ -6,11 +6,9 @@
 #    By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/17 12:46:43 by fcil              #+#    #+#              #
-#    Updated: 2022/02/17 13:02:43 by fcil             ###   ########.fr        #
+#    Updated: 2022/02/21 10:29:37 by fcil             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-#Variables
 
 NAME		= libftprintf.a
 INCLUDE		= include
@@ -19,11 +17,6 @@ CC			= gcc
 CFLAGS		= -Wall -Werror -Wextra
 RM			= rm -f
 AR			= ar rcs
-
-#Sources
-
-#SRC_FILES	=	ft_printf ft_printf_utils ft_print_ptr ft_print_unsigned ft_print_hex
-
 
 SRC	= $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
@@ -49,7 +42,4 @@ fclean:		clean
 
 re:			fclean all
 
-norm:
-			@norminette $(SRC) $(INCLUDE) $(LIBFT) | grep -v Norme -B1 || true
-
-.PHONY:		all clean fclean re norm
+.PHONY:		all clean fclean re
