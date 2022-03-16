@@ -1,8 +1,0 @@
-{
-	"files.associations": {
-		"minitalk.h": "c",
-		"stdlib.h": "c",
-		"libft.h": "c",
-		"sstream": "c"
-	}
-}
