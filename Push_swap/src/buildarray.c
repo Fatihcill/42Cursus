@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 23:52:37 by fcil              #+#    #+#             */
-/*   Updated: 2022/03/25 12:24:56 by fcil             ###   ########.fr       */
+/*   Updated: 2022/03/27 17:09:20 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,28 @@ static void	quicksort(int *array, int size)
 	quicksort(array + mid + 1, size - mid - 1);
 }
 
-int	*params_to_array(int ac, char **av)
+int	*params_to_array(int *len, char **av)
 {
-	int	*array;
-	int	i;
+	int		*array;
+	int		i;
+	char	**tmp;
 
 	i = 0;
-	array = ft_calloc(ac - 1, sizeof(int));
-	while (++i < ac)
+	if (*len == 1)
 	{
-		array[i - 1] = ft_atoi(av[i]);
+		*len = 0;
+		tmp = ft_split(*(av + 1), ' ');
+		while (tmp[*len])
+			*len = *len + 1;
+		array = ft_calloc(*len, sizeof(int));
+		while (++i <= *len)
+			array[i - 1] = ft_atoi(tmp[i - 1]);
+	}
+	else
+	{
+		array = ft_calloc(*len, sizeof(int));
+		while (++i <= *len)
+			array[i - 1] = ft_atoi(av[i]);
 	}
 	return (array);
 }
