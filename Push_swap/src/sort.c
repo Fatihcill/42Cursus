@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 13:16:48 by fcil              #+#    #+#             */
-/*   Updated: 2022/03/27 16:37:47 by fcil             ###   ########.fr       */
+/*   Updated: 2022/04/05 12:07:29 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ int	stacks_sort(t_stack *a, t_stack *b)
 	else if (a->len == 3)
 		case3(a);
 	else
-		quick_sort(a, b);
+		mysort(a, b);
 	return (0);
 }

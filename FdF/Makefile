@@ -1,33 +1,35 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/03/03 13:58:22 by fcil              #+#    #+#              #
-#    Updated: 2022/03/03 14:16:20 by fcil             ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+CC		  = gcc
+MINILIBX	= minilibx/libmlx.a
+LFLAGS	  = -framework OpenGL -framework AppKit -L./minilibx -lmlx
+CFLAGS	  = -I./include -I./ft_printf -I./minilibx
+NAME		= fdf
+SRC_DIR	 = src
+#BSRCS	  = $(wildcard $(SRC_DIR)/bonus/*_bonus.c)
+#BOBJS	  = $(BSRCS:.c=.o)
+#MSRCS	  = $(wildcard $(SRC_DIR)/mandatory/*.c)
+#MOBJS	  = $(MSRCS:.c=.o)
+SRCS		= $(wildcard $(SRC_DIR)/*.c)
+OBJS		= $(SRCS:.c=.o)
 
-FRAEMWORKS=-framework OpenGL -framework AppKit
-FLAGS=-Werror -Wextra -Wall
-NAME=fdf
-SRC=src/*.c
-INCLUDES=include/ft_printf/libftprintf.a include/minilibx_macos/libmlx.a
-#GET_NEXT_LINE = include/get_next_line/get_next_line.c include/get_next_line/get_next_line_utils.c
+all: $(NAME)
 
-all:
-	@make -C include/ft_printf/ all
-	@make -C include/minilibx_macos/ all
-	gcc $(SRC) -o $(NAME) $(FLAGS) $(INCLUDES) $(FRAEMWORKS)
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-clean:
-	make -C include/ft_printf/ clean
-	make -C include/minilibx_macos/ clean
-
-fclean: clean
-	/bin/rm -f $(NAME)
-	make -C ft_printf/ fclean
-
+$(NAME): $(MINILIBX) $(OBJS)
+	$(CC) $(LFLAGS) $(OBJS) -o $(NAME)
+#gcc main.c  -framework OpenGL -framework AppKit -L./minilibx -lmlx 
+run: all
+	./$(NAME) maps/map2.ber
 re: fclean all
+clean:
+	rm -rf $(OBJS)
+	rm -rf $(MOBJS)
+	rm -rf $(BOBJS)
+	rm -rf log.txt
+bonus: OBJS += $(BOBJS)
+bonus: $(BOBJS) $(NAME)
+fclean: clean
+	rm -rf $(NAME)
+	@-make clean -C minilibx
+.PHONY: clean run fclean re all testm testb bonus norm

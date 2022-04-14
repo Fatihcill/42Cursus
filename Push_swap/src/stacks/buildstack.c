@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 00:23:21 by fcil              #+#    #+#             */
-/*   Updated: 2022/03/24 13:12:02 by fcil             ###   ########.fr       */
+/*   Updated: 2022/03/28 12:07:49 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,9 @@ int	build_stack(t_stack *stack, int *arr, int len)
 
 	sorted_arr = arr_checkdoubles(arr, len);
 	if (!sorted_arr || !stack || !arr)
+	{
 		return (0);
+	}
 	stack->len = 0;
 	stack->first = NULL;
 	if (push_all_nodes(stack, arr, len))

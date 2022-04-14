@@ -1,7 +1,5 @@
 {
 	"files.associations": {
-		"fdf.h": "c",
-		"ft_printf.h": "c",
 		"mlx.h": "c"
 	}
 }

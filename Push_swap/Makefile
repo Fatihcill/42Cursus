@@ -6,7 +6,7 @@
 #    By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/22 22:58:51 by fcil              #+#    #+#              #
-#    Updated: 2022/03/27 16:37:13 by fcil             ###   ########.fr        #
+#    Updated: 2022/04/05 12:07:12 by fcil             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,10 @@ NAME	:= push_swap
 
 CC		:= gcc
 INCLUDE	:= ./include
-CFLAGS	:= -Wall -Wextra -Werror -ggdb -I $(INCLUDE)
+CFLAGS	:= -Wall -Wextra -ggdb -I $(INCLUDE)
 LIBFT	= ft_printf
 
-#TODO: -GGDB WILL BE DELETED
+#TODO: -GGDB WILL BE DELETED -Werror
 
 SRCDIR	:= src
 SRC		:= $(shell find $(SRCDIR) -name '*.c')
