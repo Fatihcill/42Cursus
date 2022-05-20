@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/22 22:40:53 by fcil              #+#    #+#             */
-/*   Updated: 2022/05/20 12:48:29 by fcil             ###   ########.fr       */
+/*   Created: 2022/04/22 10:08:25 by fcil              #+#    #+#             */
+/*   Updated: 2022/04/22 10:27:47 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "checker.h"
 
-// static void	ft_print_stack(int len, t_stack s)
-// {
-// 	t_node	*current;
+static void			chk_init_flags(t_flags *flags)
+{
+	flags->verbose = 0;
+	flags->colors = 0;
+	flags->error = 0;
+	flags->counter = 0;
+	flags->index = 0;
+	flags->repeat = 0;
+	flags->count = 0;
+}
 
-// 	current = s.first;
-// 	ft_printf(" stack len : %d \n", s.len);
-// 	while (len > 0)
-// 	{
-// 		ft_printf("rank : %d  value : %d \n", current->rank, current->value);
-// 		current = current->next;
-// 		len--;
-// 	}
-// }
 static void	init(t_stack *a, t_stack *b, t_seq *seq)
 {
 	(void)a;
@@ -36,28 +34,18 @@ static void	init(t_stack *a, t_stack *b, t_seq *seq)
 
 int	main(int ac, char **av)
 {
-	t_stack		a;
-	t_stack		b;
-	t_seq		seq;
-	int			*arr;
-	int			len;
+	t_stack			a;
+	t_stack			b;
+	t_flags			flags;
+	t_seq			seq;
 
-	len = ac - 1;
 	if (ac < 2)
-		return (0);
-	arr = params_to_array(&len, av);
-	if (!build_stack(&a, arr, len))
 	{
-		free(arr);
-		return (-1);
+		ft_printf("Error!");
+		return (0);
 	}
+	chk_init_flags(&flags);
 	init(&a, &b, &seq);
 	stackmoves_setup(&a, &b, &seq);
-	stacks_sort(&a, &b);
-	seq_optimize(&seq);
-	seq_print(&seq);
-	stack_free(&a);
-	stack_free(&b);
-	free(arr);
-	return (0);
+
 }

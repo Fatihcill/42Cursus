@@ -4,5 +4,11 @@
 		"isthisa",
 		"stackinde",
 		"topush"
-	]
+	],
+	"files.associations": {
+		"libft.h": "c",
+		"pushswap.h": "c",
+		"ft_printf.h": "c",
+		"checker.h": "c"
+	}
 }

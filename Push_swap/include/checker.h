@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mysort.c                                           :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/29 12:52:53 by fcil              #+#    #+#             */
-/*   Updated: 2022/04/05 12:40:47 by fcil             ###   ########.fr       */
+/*   Created: 2022/04/22 10:13:25 by fcil              #+#    #+#             */
+/*   Updated: 2022/04/22 10:24:02 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#ifndef CHECKER_H
+# define CHECKER_H
 
+# include "ft_printf.h"
+# include "pushswap.h"
 
-static t_stack*	max_sorted_seq(t_stack *a)
+typedef struct		s_flags
 {
-	t_stack aligned_st;
-	int	first_index;
+	int				verbose;
+	int				colors;
+	int				counter;
+	int				count;
+	int				error;
+	int				index;
+	int				repeat;
+}					t_flags;
 
-	aligned_st = ft_memcpy(&aligned_st, a, sizeof(a));	
-	while (aligned_st->first->rank != 0)
-		aligned_st->first = aligned_st->first->next;
-	return aligned_st;
-}
-
-void	mysort(t_stack *a, t_stack *b)
-{
-	t_stack *sorted_seq = max_sorted_seq(a);
-}
-
+#endif /* CHECKER_H */

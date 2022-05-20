@@ -1,0 +1,33 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/fcil/Desktop/42Cursus/Push_swap'
+mkdir -p obj
+gcc -Wall -Wextra -ggdb -I ./include -c src/buildarray.c -o obj/buildarray.o
+mkdir -p obj
+gcc -Wall -Wextra -ggdb -I ./include -c src/main.c -o obj/main.o
+mkdir -p obj/moves
+gcc -Wall -Wextra -ggdb -I ./include -c src/moves/px.c -o obj/moves/px.o
+mkdir -p obj/moves
+gcc -Wall -Wextra -ggdb -I ./include -c src/moves/rrx.c -o obj/moves/rrx.o
+mkdir -p obj/moves
+gcc -Wall -Wextra -ggdb -I ./include -c src/moves/rx.c -o obj/moves/rx.o
+mkdir -p obj/moves
+gcc -Wall -Wextra -ggdb -I ./include -c src/moves/stackmoves.c -o obj/moves/stackmoves.o
+mkdir -p obj/moves
+gcc -Wall -Wextra -ggdb -I ./include -c src/moves/sx.c -o obj/moves/sx.o
+mkdir -p obj
+gcc -Wall -Wextra -ggdb -I ./include -c src/optimize.c -o obj/optimize.o
+mkdir -p obj
+gcc -Wall -Wextra -ggdb -I ./include -c src/quicksort.c -o obj/quicksort.o
+mkdir -p obj/sequence
+gcc -Wall -Wextra -ggdb -I ./include -c src/sequence/seq.c -o obj/sequence/seq.o
+mkdir -p obj
+gcc -Wall -Wextra -ggdb -I ./include -c src/sort.c -o obj/sort.o
+mkdir -p obj/stacks
+gcc -Wall -Wextra -ggdb -I ./include -c src/stacks/buildstack.c -o obj/stacks/buildstack.o
+mkdir -p obj/stacks
+gcc -Wall -Wextra -ggdb -I ./include -c src/stacks/stacks_common.c -o obj/stacks/stacks_common.o
+make -C ft_printf
+cp ft_printf/libftprintf.a .
+gcc -Wall -Wextra -ggdb -I ./include ./obj/buildarray.o ./obj/main.o ./obj/moves/px.o ./obj/moves/rrx.o ./obj/moves/rx.o ./obj/moves/stackmoves.o ./obj/moves/sx.o ./obj/optimize.o ./obj/quicksort.o ./obj/sequence/seq.o ./obj/sort.o ./obj/stacks/buildstack.o ./obj/stacks/stacks_common.o libftprintf.a -o push_swap
+make: Leaving directory `/Users/fcil/Desktop/42Cursus/Push_swap'
+ 

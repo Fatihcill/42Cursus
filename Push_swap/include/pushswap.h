@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 22:48:54 by fcil              #+#    #+#             */
-/*   Updated: 2022/03/29 13:25:53 by fcil             ###   ########.fr       */
+/*   Updated: 2022/04/22 10:34:24 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,7 @@ void	quick_sort_a_ascending(t_stack *a, t_stack *b, t_quick *data);
 //b stackinde pivotdan itibaren azalan şekilde sıralıyoruz.
 void	quick_sort_b_descending(t_stack *a, t_stack *b, t_quick *data);
 //----------------------------------------------------------------
-//MY SORT FUNCTIONS
-void	mysort(t_stack *a, t_stack *b);
+
 //----------------------------------------------------------------
 //stack functions
 void	stack_free(t_stack *stack);

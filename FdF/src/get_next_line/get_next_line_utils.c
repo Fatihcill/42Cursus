@@ -6,13 +6,13 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 11:25:58 by fcil              #+#    #+#             */
-/*   Updated: 2022/02/15 15:55:24 by fcil             ###   ########.fr       */
+/*   Updated: 2022/04/14 16:49:08 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlengnl(const char *s)
 {
 	size_t	i;
 
@@ -24,7 +24,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchrgnl(const char *s, int c)
 {
 	int	s_len;
 
@@ -41,7 +41,7 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoingnl(char *s1, char *s2)
 {
 	unsigned int	i;
 	unsigned int	j;

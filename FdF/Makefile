@@ -32,4 +32,5 @@ bonus: $(BOBJS) $(NAME)
 fclean: clean
 	rm -rf $(NAME)
 	@-make clean -C minilibx
+	@-make clean -C ft_printf
 .PHONY: clean run fclean re all testm testb bonus norm
