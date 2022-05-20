@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 22:40:53 by fcil              #+#    #+#             */
-/*   Updated: 2022/05/20 12:48:29 by fcil             ###   ########.fr       */
+/*   Updated: 2022/05/20 14:57:34 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,9 @@ int	main(int ac, char **av)
 	if (ac < 2)
 		return (0);
 	arr = params_to_array(&len, av);
-	if (!build_stack(&a, arr, len))
+	if (check_error(&av[1]) || !build_stack(&a, arr, len))
 	{
+		ft_putstr_fd("Error\n", 2);
 		free(arr);
 		return (-1);
 	}

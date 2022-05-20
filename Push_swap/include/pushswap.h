@@ -6,13 +6,14 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 22:48:54 by fcil              #+#    #+#             */
-/*   Updated: 2022/04/22 10:34:24 by fcil             ###   ########.fr       */
+/*   Updated: 2022/05/20 14:55:33 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSHSWAP_H
 # define PUSHSWAP_H
 # include "ft_printf.h"
+# include "limits.h"
 
 # define SETUP 1
 # define FLAG_A 2
@@ -92,6 +93,7 @@ int		build_stack(t_stack *stack, int *arr, int len);
 //array functions
 int		*params_to_array(int *len, char **av);
 int		*arr_checkdoubles(int *arr, int len);
+int		check_error(char **array);
 
 //stackmoves
 void	px(int flag, t_stack *a, t_stack *b, t_seq *seq);

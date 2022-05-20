@@ -6,7 +6,7 @@
 #    By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/22 22:58:51 by fcil              #+#    #+#              #
-#    Updated: 2022/04/22 10:33:50 by fcil             ###   ########.fr        #
+#    Updated: 2022/05/20 14:48:33 by fcil             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	:= push_swap
 
 CC		:= gcc
 INCLUDE	:= ./include
-CFLAGS	:= -Wall -Wextra -ggdb -I $(INCLUDE)
+CFLAGS	:= -Wall -Wextra -Werror -ggdb -I $(INCLUDE)
 LIBFT	= ft_printf
 
 #TODO: -GGDB WILL BE DELETED -Werror
@@ -22,19 +22,10 @@ LIBFT	= ft_printf
 SRCDIR	:= src
 SRC		:= $(shell find $(SRCDIR) -name '*.c')
 
-BNSDIR	:= bns
-BNS		:= $(shell find $(BNSDIR) -name '*.c')
-
 OBJDIR	:= ./obj
 OBJ		:= $(SRC:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
-OBJBNS	:= $(BNS:$(BNSDIR)/%.c=$(OBJDIR)/%.o)
 
 all: $(NAME)
-
-bonus:	$(OBJ) $(OBJBNS)
-	make -C $(LIBFT)
-	cp ft_printf/libftprintf.a .
-	$(CC) $(CFLAGS) $(OBJ) libftprintf.a -o $@
 
 $(NAME): $(OBJ)
 	make -C $(LIBFT)
