@@ -6,7 +6,7 @@
 #    By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/23 12:29:09 by fcil              #+#    #+#              #
-#    Updated: 2022/05/23 12:39:51 by fcil             ###   ########.fr        #
+#    Updated: 2022/05/23 13:01:41 by fcil             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,8 @@ NAME		= fract-ol
 SRC_DIR	 = src
 SRCS		= $(wildcard $(SRC_DIR)/*.c)
 OBJS		= $(SRCS:.c=.o)
-FT		= ./ft_printf/
-FT_LIB	= ./ft_printf/libftprintf.a
+FT		= ./libft/
+FT_LIB	= ./libft/libft.a
 CFLAGS	  = -I./include -I $(MLX) -I $(FT)
 
 all: $(NAME)

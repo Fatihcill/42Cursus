@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 14:45:48 by fcil              #+#    #+#             */
-/*   Updated: 2022/05/23 12:35:49 by fcil             ###   ########.fr       */
+/*   Updated: 2022/05/23 13:18:41 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#ifndef FRACTOL_H
+# define FRACTOL_H
 
 # include "mlx.h"
 # include <math.h>
 # include <stdio.h>
 # include <errno.h>
 # include <fcntl.h>
-# include "ft_printf.h"
+# include "libft.h"
 
-//todo R VE İ TANIMLANACAK
+# define TRUE 1
+# define FALSE 0
+# define T_JULIA	1
+# define T_MANDEL	2
+# define T_MA_SET	3
+# define T_MB		4
+# define T_BS		5
+# define T_JS		6
+
+//r -> real
+//i -> imaginary
 typedef struct s_complex
 {
 	double		r;
@@ -54,7 +64,8 @@ typedef struct s_env
 	t_img		*img;
 }				t_env;
 
-//renk tanımı yapıldı rgb
+//renk tanımı yapıldı rgb 
+//todo SHADOW ne için ?
 typedef struct s_color
 {
 	double		r;
@@ -63,6 +74,6 @@ typedef struct s_color
 	int			shadow;
 }				t_color;
 
-void	terminate(char *str);
+int			ft_no_param(void);
 
-# endif
+#endif

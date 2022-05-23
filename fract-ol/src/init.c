@@ -1,45 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_uint.c                                   :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/18 10:23:16 by fcil              #+#    #+#             */
-/*   Updated: 2022/02/21 10:20:11 by fcil             ###   ########.fr       */
+/*   Created: 2022/05/23 13:16:18 by fcil              #+#    #+#             */
+/*   Updated: 2022/05/23 13:19:30 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "fractol.h"
 
-int	ft_num_len(unsigned	int num)
+t_complex	ft_initcomplex(double real, double imaginary)
 {
-	int	len;
+	t_complex	c;
 
-	len = 0;
-	while (num != 0)
-	{
-		len++;
-		num = num / 10;
-	}
-	return (len);
+	c.r = real;
+	c.i = imaginary;
+	return (c);
 }
 
-char	*ft_uitoa(unsigned int n)
+void	ft_init_env(t_env *env)
 {
-	char	*num;
-	int		len;
 
-	len = ft_num_len(n);
-	num = (char *)malloc(sizeof(char) * (len + 1));
-	if (!num)
-		return (0);
-	num[len] = '\0';
-	while (n != 0)
-	{
-		num[len - 1] = n % 10 + '0';
-		n = n / 10;
-		len--;
-	}
-	return (num);
 }

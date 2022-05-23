@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Mon May 23 12:38:32 2022
+# Make data base, printed on Mon May 23 13:01:46 2022
 
 # Variables
 
@@ -40,8 +40,9 @@ CFLAGS = -I./include -I $(MLX) -I $(FT)
 MAKEFILE_LIST :=  Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
+ 
 # makefile (from `Makefile', line 31)
-FT = ./ft_printf/
+FT = ./libft/
 # makefile (from `Makefile', line 30)
 OBJS = $(SRCS:.c=.o)
 # environment
@@ -69,7 +70,7 @@ VSCODE_PIPE_LOGGING = true
 # environment
 PWD = /Users/fcil/Desktop/42Cursus/fract-ol
 # makefile (from `Makefile', line 32)
-FT_LIB = ./ft_printf/libftprintf.a
+FT_LIB = ./libft/libft.a
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
@@ -163,7 +164,7 @@ LANG = C
 # environment
 VSCODE_PID = 78213
 # variable set hash-table stats:
-# Load=75/1024=7%, Rehash=0, Collisions=4/120=3%
+# Load=75/1024=7%, Rehash=0, Collisions=3/117=3%
 
 # Pattern-specific Variable Values
 
@@ -171,8 +172,8 @@ VSCODE_PID = 78213
 
 # Directories
 
-# . (device 16777225, inode 374264): 10 files, no impossibilities.
-# src (device 16777225, inode 523484): 4 files, no impossibilities.
+# . (device 16777225, inode 374264): 11 files, no impossibilities.
+# src (device 16777225, inode 523484): 3 files, no impossibilities.
 
 # 14 files, no impossibilities in 2 directories.
 
@@ -189,39 +190,22 @@ VSCODE_PID = 78213
 
 minilibx/libmlx.a:
 #  Implicit rule search has not been done.
-#  Last modified 2022-05-23 12:37:44
+#  Last modified 2022-05-23 12:53:00
 #  File has been updated.
 #  Successfully updated.
 #  commands to execute (from `Makefile', line 44):
 	@make -C $(MLX)
 	
 
-fract-ol: ft_printf/ minilibx/libmlx.a src/main.o
+fract-ol: libft/libft.a minilibx/libmlx.a src/main.o
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: `'
-#  File does not exist.
+#  Last modified 2022-05-23 12:53:00
 #  File has been updated.
 #  Needs to be updated (-q is set).
-# automatic
-# @ := fract-ol
-# automatic
-# % := 
-# automatic
-# * := 
-# automatic
-# + := ft_printf/ minilibx/libmlx.a src/main.o
-# automatic
-# | := 
-# automatic
-# < := ft_printf/
-# automatic
-# ^ := ft_printf/ minilibx/libmlx.a src/main.o
-# automatic
-# ? := ft_printf/ minilibx/libmlx.a src/main.o
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=2/17=12%
+# Load=0/32=0%, Rehash=0, Collisions=0/6=0%
 #  commands to execute (from `Makefile', line 41):
-	$(CC) $(LFLAGS) -L./ft_printf $(OBJS) -o $(NAME)
+	$(CC) $(LFLAGS) $(OBJS) $(FT_LIB) -o $(NAME)
 	
 
 all: fract-ol
@@ -232,30 +216,37 @@ all: fract-ol
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/9=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/6=0%
 
 .PHONY: clean run fclean re all
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-ft_printf/:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-23 12:32:45
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
 src/main.o: src/main.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `src/main'
-#  Last modified 2022-05-23 12:37:44
+#  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := src/main.o
+# automatic
+# % := 
+# automatic
+# * := src/main
+# automatic
+# + := src/main.c
+# automatic
+# | := 
+# automatic
+# < := src/main.c
+# automatic
+# ^ := src/main.c
+# automatic
+# ? := src/main.c
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+# Load=8/32=25%, Rehash=0, Collisions=1/16=6%
 #  commands to execute (from `Makefile', line 38):
 	$(CC) $(CFLAGS) -c $< -o $@
 	
@@ -269,11 +260,20 @@ src/main.o: src/main.c
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-23 12:38:17
+#  Last modified 2022-05-23 13:01:41
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+libft/libft.a:
+#  Implicit rule search has not been done.
+#  Last modified 2022-05-23 13:01:45
+#  File has been updated.
+#  Successfully updated.
+#  commands to execute (from `Makefile', line 47):
+	@make -C $(FT)
+	
 
 fclean: clean
 #  Phony target (prerequisite of .PHONY).
@@ -289,7 +289,7 @@ fclean: clean
 # Not a target:
 src/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-23 12:36:07
+#  Last modified 2022-05-23 12:53:46
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -324,17 +324,8 @@ clean:
 	@-make -C $(FT) clean
 	
 
-ft_printf/libftprintf.a:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  commands to execute (from `Makefile', line 47):
-	@make -C $(FT)
-	
-
 # files hash-table stats:
- 
-# Load=15/1024=1%, Rehash=0, Collisions=0/44=0%
+# Load=14/1024=1%, Rehash=0, Collisions=0/42=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -346,6 +337,6 @@ ft_printf/libftprintf.a:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon May 23 12:38:32 2022
+# Finished Make data base on Mon May 23 13:01:46 2022
 
  
