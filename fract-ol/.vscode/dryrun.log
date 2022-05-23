@@ -1,0 +1,6 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory `/Users/fcil/Desktop/42Cursus/fract-ol'
+gcc -L ./minilibx/ -l mlx -framework OpenGL -framework AppKit -L./ft_printf src/main.o -o fract-ol
+ 
+make: Leaving directory `/Users/fcil/Desktop/42Cursus/fract-ol'
+ 

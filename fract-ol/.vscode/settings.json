@@ -1,0 +1,8 @@
+{
+	"files.associations": {
+		"mlx.h": "c",
+		"get_next_line.h": "c",
+		"fcntl.h": "c",
+		"fdf.h": "c"
+	}
+}
