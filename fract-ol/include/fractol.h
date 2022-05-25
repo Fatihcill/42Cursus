@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 14:45:48 by fcil              #+#    #+#             */
-/*   Updated: 2022/05/23 13:18:41 by fcil             ###   ########.fr       */
+/*   Updated: 2022/05/25 17:25:17 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <errno.h>
 # include <fcntl.h>
 # include "libft.h"
-
+# include "keypress.h"
 # define TRUE 1
 # define FALSE 0
 # define T_JULIA	1
@@ -29,6 +29,15 @@
 # define T_BS		5
 # define T_JS		6
 
+# define SIZE_X			1000
+# define SIZE_Y			1000
+# define MAX_ITERATION	250
+# define REAL			-0.7
+# define IMAGINARY		0.27015
+# define MIN_R			-2.0
+# define MIN_I			-2.0
+# define MAX_R			2.0
+# define MAX_I			2.0
 //r -> real
 //i -> imaginary
 typedef struct s_complex

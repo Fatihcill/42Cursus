@@ -6,7 +6,7 @@
 #    By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/23 12:29:09 by fcil              #+#    #+#              #
-#    Updated: 2022/05/23 13:01:41 by fcil             ###   ########.fr        #
+#    Updated: 2022/05/25 17:16:31 by fcil             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ ifeq ($(OS), Linux)
 else
 	MLX		= ./minilibx/
 	MINILIBX	= minilibx/libmlx.a
-	LFLAGS	= -L $(MLX) -l mlx -framework OpenGL -framework AppKit
+	LFLAGS	= -L $(MLX) -l mlx -framework OpenGL -framework AppKit -Dunix
 endif
 
 NAME		= fract-ol
