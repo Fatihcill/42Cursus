@@ -1,0 +1,14 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/fcil/Desktop/42Cursus/fract-ol'
+make -C ./libft/
+make -C ./minilibx/
+gcc -I./include -I ./minilibx/ -I ./libft/ -c src/color.c -o src/color.o
+gcc -I./include -I ./minilibx/ -I ./libft/ -c src/fractol.c -o src/fractol.o
+gcc -I./include -I ./minilibx/ -I ./libft/ -c src/help.c -o src/help.o
+gcc -I./include -I ./minilibx/ -I ./libft/ -c src/key.c -o src/key.o
+ 
+gcc -I./include -I ./minilibx/ -I ./libft/ -c src/main.c -o src/main.o
+gcc -I./include -I ./minilibx/ -I ./libft/ -c src/mouse.c -o src/mouse.o
+gcc -L ./minilibx/ -l mlx -framework OpenGL -framework AppKit -Dunix src/color.o src/fractol.o src/help.o src/key.o src/main.o src/mouse.o ./libft/libft.a -o fract-ol
+make: Leaving directory `/Users/fcil/Desktop/42Cursus/fract-ol'
+ 

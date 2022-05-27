@@ -6,7 +6,7 @@
 #    By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/23 12:29:09 by fcil              #+#    #+#              #
-#    Updated: 2022/05/25 17:16:31 by fcil             ###   ########.fr        #
+#    Updated: 2022/05/27 15:41:39 by fcil             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,4 +58,9 @@ fclean: clean
 	@-make -C $(MLX) clean
 	@-make -C $(FT) fclean
 
-.PHONY: clean run fclean re all
+norminette:
+	norminette src/
+	norminette include/
+	norminette libft/
+
+.PHONY: clean run fclean re all norminette

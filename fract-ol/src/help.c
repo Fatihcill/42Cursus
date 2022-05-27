@@ -6,36 +6,57 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 13:12:38 by fcil              #+#    #+#             */
-/*   Updated: 2022/05/23 13:13:09 by fcil             ###   ########.fr       */
+/*   Updated: 2022/05/27 15:33:29 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static int	ft_arg_fractal(t_env *env, char **av)
+void	set_input(int argc, char *argv[], t_fractol *frctl)
 {
-	int	len;
-
-	len = ft_strlen(av[1]);
-	env->type = 0;
-	if (!ft_strncmp(av[1], "J", len) || !ft_strncmp(av[1], "Julia", len))
-		env->type = T_JULIA;
-	else if (!ft_strncmp(av[1], "M", len)
-		|| !ft_strncmp(av[1], "Mandelbrot", len))
-		env->type = T_MANDEL;
-	else if (!ft_strncmp(av[1], "MA", len)
-		|| !ft_strncmp(av[1], "MA_set", len))
-		env->type = T_MA_SET;
-	else if (!ft_strncmp(av[1], "MB", len)
-		|| !ft_strncmp(av[1], "Mandelbar", len))
-		env->type = T_MB;
-	else if (!ft_strncmp(av[1], "BS", len)
-		|| !ft_strncmp(av[1], "Burning_Ship", len))
-		env->type = T_BS;
-	else if (!ft_strncmp(av[1], "JS", len)
-		|| !ft_strncmp(av[1], "Julia_S", len))
-		env->type = T_JS;
+	frctl->fractal_func = NULL;
+	if (argc == 2 && !ft_strncmp(argv[1], "julia", 6))
+	{
+		frctl->fractal_func = julia;
+	}
+	else if (argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 11))
+		frctl->fractal_func = mandelbrot;
+	else if (argc == 2 && !ft_strncmp(argv[1], "burning_ship", 9))
+		frctl->fractal_func = burning_ship;
 	else
-		return (FALSE);
-	return (TRUE);
+	{
+		printf("Unfortunately your input is not valid.\n");
+		printf("Please use one of the following parameters: ");
+		printf("[mandelbrot, julia, burning_ship]\n");
+		printf("Sample usage: ./fractol mandelbrot\n");
+	}
+	if (frctl->fractal_func == NULL)
+		fractol_free_kill_all(frctl);
+}
+
+void	complex_set(t_complex *z, double re, double im)
+{
+	z->re = re;
+	z->im = im;
+}
+
+int	fractol_free_kill_all(t_fractol *frctl)
+{
+	if (frctl->mlx != NULL)
+	{
+		mlx_destroy_window(frctl->mlx->ptr, frctl->mlx->win);
+		mlx_destroy_image(frctl->mlx->ptr, frctl->mlx->img.ptr);
+		free(frctl->mlx);
+	}
+	free(frctl->color_scheme);
+	free(frctl);
+	exit(EXIT_SUCCESS);
+}
+
+void	my_mlx_pixel_put(t_mlximg *img, int x, int y, int color)
+{
+	char	*dest;
+
+	dest = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
+	*(unsigned int *)dest = color;
 }

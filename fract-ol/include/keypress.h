@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 19:10:57 by adelille          #+#    #+#             */
-/*   Updated: 2022/05/25 17:17:49 by fcil             ###   ########.fr       */
+/*   Updated: 2022/05/27 14:50:05 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,30 @@
 // #  define K_N			110
 
 //# elif __unix__
-#  define K_ESC			53
-#  define K_LEFT			123
-#  define K_RIGHT		124
-#  define K_DOWN			125
-#  define K_UP			126
-#  define K_W			13
-#  define K_A			0
-#  define K_S			1
-#  define K_D			2
-#  define K_Z			6
-#  define K_Q			12
-#  define M_SCROLL_UP	4
-#  define M_SCROLL_DOWN	5
-#  define K_M			46
-#  define K_N			45
+# define ARROW_LEFT		123
+# define ARROW_RIGHT	124
+# define ARROW_UP		126
+# define ARROW_DOWN		125
+
+# define MOUSE_UP		4
+# define MOUSE_DOWN		5
+
+# define MAINP_ESC		53
+# define MAINP_SPACE	49
+# define MAINP_Q		12
+# define MAINP_E		14
+# define MAINP_R		15
+# define MAINP_DOT		47
+# define MAINP_1		18
+# define MAINP_2		19
+# define MAINP_3		20
+# define MAINP_4		21
+
+# define NUMP_PLUS		69
+# define NUMP_MINUS		78
+# define NUMP_1			83
+# define NUMP_2			84
+# define NUMP_3			85
+# define NUMP_4			86
 //# endif
 #endif
