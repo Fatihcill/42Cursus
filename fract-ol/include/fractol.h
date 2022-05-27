@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 14:45:48 by fcil              #+#    #+#             */
-/*   Updated: 2022/05/27 15:33:15 by fcil             ###   ########.fr       */
+/*   Updated: 2022/05/27 19:55:59 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int			fractol_free_kill_all(t_fractol *frctl);
 
 void		mandelbrot(t_fractol *frctl);
 void		julia(t_fractol *frctl);
-void		burning_ship(t_fractol *frctl);
+void		multibrot_set(t_fractol *frctl);
 
 int			get_color(t_fractol *frctl);
 void		set_color_array(t_fractol *frctl);

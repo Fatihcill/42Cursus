@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 13:12:38 by fcil              #+#    #+#             */
-/*   Updated: 2022/05/27 15:33:29 by fcil             ###   ########.fr       */
+/*   Updated: 2022/05/27 19:55:59 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ void	set_input(int argc, char *argv[], t_fractol *frctl)
 	}
 	else if (argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 11))
 		frctl->fractal_func = mandelbrot;
-	else if (argc == 2 && !ft_strncmp(argv[1], "burning_ship", 9))
-		frctl->fractal_func = burning_ship;
+	else if (argc == 2 && !ft_strncmp(argv[1], "multibrot_set", 9))
+		frctl->fractal_func = multibrot_set;
 	else
 	{
 		printf("Unfortunately your input is not valid.\n");
 		printf("Please use one of the following parameters: ");
-		printf("[mandelbrot, julia, burning_ship]\n");
+		printf("[mandelbrot, julia, multibrot_set]\n");
 		printf("Sample usage: ./fractol mandelbrot\n");
 	}
 	if (frctl->fractal_func == NULL)

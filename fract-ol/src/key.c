@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 15:17:42 by fcil              #+#    #+#             */
-/*   Updated: 2022/05/27 17:11:58 by fcil             ###   ########.fr       */
+/*   Updated: 2022/05/27 19:55:59 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,14 +75,14 @@ void	fractal_change(int key, t_fractol *frctl)
 	else if (key == MAINP_2 || key == NUMP_2)
 		frctl->fractal_func = julia;
 	else if (key == MAINP_3 || key == NUMP_3)
-		frctl->fractal_func = burning_ship;
+		frctl->fractal_func = multibrot_set;
 	set_defaults(frctl);
 }
 
 //renk seçenekleri (6 renk belirleniyor)
 void	color_shift(t_fractol *frctl)
 {
-	frctl->color_shift = (frctl->color_shift + 1) % 6;
+	frctl->color_shift = (frctl->color_shift + 1) % 3;
 	set_color_array(frctl);
 }
 
