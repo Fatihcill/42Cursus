@@ -7,9 +7,9 @@
 
 <tr style="display:flex; justify-content:space-around;"><td style="padding:0;">
 
-| <div style="width:350px">Project</div> | Score| 
+|Project|Score| 
 -------|-------------------
-| Libft | [![fcil's 42 Libft Score](https://badge42.vercel.app/api/v2/cl311k8l3001109mcdj1ift97/project/2473103)](https://github.com/JaeSeoKim/badge42)|
+| Libft <img width=290/>| [![fcil's 42 Libft Score](https://badge42.vercel.app/api/v2/cl311k8l3001109mcdj1ift97/project/2473103)](https://github.com/JaeSeoKim/badge42)|
 | Born2Beroot| [![fcil's 42 Born2beroot Score](https://badge42.vercel.app/api/v2/cl311k8l3001109mcdj1ift97/project/2499569)](https://github.com/JaeSeoKim/badge42)|
 | GetNextLine| [![fcil's 42 get_next_line Score](https://badge42.vercel.app/api/v2/cl311k8l3001109mcdj1ift97/project/2488255)](https://github.com/JaeSeoKim/badge42)|
 | Printf| [![fcil's 42 ft_printf Score](https://badge42.vercel.app/api/v2/cl311k8l3001109mcdj1ift97/project/2496505)](https://github.com/JaeSeoKim/badge42)|
