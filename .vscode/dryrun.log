@@ -1,6 +1,0 @@
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory '/home/fcil/Desktop/42Cursus'
-make: Leaving directory '/home/fcil/Desktop/42Cursus'
- 
-make: *** No targets specified and no makefile found.  Stop.
-
