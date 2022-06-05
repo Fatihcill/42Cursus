@@ -1,0 +1,5 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/fcil/Desktop/42Cursus/Philosphers'
+make: Nothing to be done for 'all'.
+make: Leaving directory '/home/fcil/Desktop/42Cursus/Philosphers'
+ 
