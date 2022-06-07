@@ -1,5 +1,11 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/fcil/Desktop/42Cursus/Philosphers'
-make: Nothing to be done for 'all'.
+mkdir -p obj
+gcc -ggdb -I ./include -c src/utils.c -o obj/utils.o
+mkdir -p obj
+gcc -ggdb -I ./include -c src/life_cycle.c -o obj/life_cycle.o
+mkdir -p obj
+gcc -ggdb -I ./include -c src/main.c -o obj/main.o
+gcc -ggdb -I ./include ./obj/utils.o ./obj/life_cycle.o ./obj/main.o -o philo
 make: Leaving directory '/home/fcil/Desktop/42Cursus/Philosphers'
  

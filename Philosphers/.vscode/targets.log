@@ -6,18 +6,18 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Jun  5 22:18:45 2022
+# Make data base, printed on Tue Jun  7 03:21:12 2022
 
 # Variables
 
 # makefile (from 'Makefile', line 26)
-OBJ := ./obj/life_cycle.o ./obj/main.o
+OBJ := ./obj/utils.o ./obj/life_cycle.o ./obj/main.o
 # environment
 GDK_BACKEND = x11
 # environment
 LC_ALL = C
 # makefile (from 'Makefile', line 23)
-SRC := src/life_cycle.c src/main.c
+SRC := src/utils.c src/life_cycle.c src/main.c
 # environment
 GNOME_SHELL_SESSION_MODE = pop
 # environment
@@ -25,13 +25,13 @@ SSH_AGENT_LAUNCHER = gnome-keyring
 # makefile (from 'Makefile', line 25)
 OBJDIR := ./obj
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-55f90391-2950-41ee-8a3d-9667055100b2.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-0a1df071-108d-41f8-9cd4-a4d358d78c5a.sock
 # environment
 MANDATORY_PATH = /usr/share/gconf/pop.mandatory.path
 # environment
 VSCODE_CWD = /home/fcil/Desktop/42Cursus/Philosphers
 # environment
-WINDOWID = 37748751
+WINDOWID = 52428815
 # environment
 WINDOWPATH = 2
 # default
@@ -53,7 +53,6 @@ LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
 XDG_DATA_DIRS = /usr/share/pop:/usr/share/gnome:/home/fcil/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/
 # environment
- 
 OLDPWD = /home/fcil/Desktop/42Cursus
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
@@ -104,13 +103,13 @@ ZSH = /home/fcil/.oh-my-zsh
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 10573
+VSCODE_PID = 19551
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/3368,unix/pop-os:/tmp/.ICE-unix/3368
+SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/3284,unix/pop-os:/tmp/.ICE-unix/3284
 # automatic
 *F = $(notdir $*)
 # environment
@@ -148,7 +147,7 @@ MAKEFILES :=
 # automatic
 ^F = $(notdir $^)
 # environment
-INVOCATION_ID = 21d282a3e2ed4232b93445e1a8701946
+INVOCATION_ID = e97a920831d642cfb9e0d6fd927a592c
 # environment
 VSCODE_LOG_NATIVE = false
 # environment
@@ -178,7 +177,7 @@ LOGNAME = fcil
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 3520
+SYSTEMD_EXEC_PID = 3447
 # environment
 KITTY_WINDOW_ID = 1
 # environment
@@ -194,9 +193,9 @@ MAKE_VERSION := 4.3
 # 'override' directive
 .SHELLSTATUS := 0
 # environment
-MANAGERPID = 3110
+MANAGERPID = 3022
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 10428
+GIO_LAUNCHED_DESKTOP_FILE_PID = 19344
 # environment
 PAGER = less
 # environment
@@ -210,7 +209,7 @@ GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
 COLORTERM = truecolor
 # environment
-JOURNAL_STREAM = 8:46341
+JOURNAL_STREAM = 8:45157
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -248,7 +247,7 @@ XDG_MENU_PREFIX = gnome-
 # environment
 GDMSESSION = pop
 # variable set hash-table stats:
-# Load=118/1024=12%, Rehash=0, Collisions=8/161=5%
+# Load=118/1024=12%, Rehash=0, Collisions=8/167=5%
 
 # Pattern-specific Variable Values
 
@@ -256,38 +255,55 @@ GDMSESSION = pop
 
 # Directories
 
-# src (device 66307, inode 3415273): 2 files, no impossibilities so far.
+# src (device 66307, inode 3415273): 1 files, no impossibilities so far.
 # . (device 66307, inode 3286547): 9 files, no impossibilities.
 
-# 11 files, no impossibilities in 2 directories.
+# 10 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
 obj/%.o: src/%.c
 #  recipe to execute (from 'Makefile', line 34):
- 
 	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # 1 implicit rules, 0 (0.0%) terminal.
 # Files
 
-# Not a target:
-src/life_cycle.c:
+obj/utils.o: src/utils.c
 #  Implicit rule search has been done.
-#  Last modified 2022-06-05 22:12:27.443504423
+#  Implicit/static pattern stem: 'utils'
+#  File does not exist.
 #  File has been updated.
-#  Successfully updated.
-
-obj/main.o: src/main.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'main'
-#  Last modified 2022-06-05 22:18:00.550070845
-#  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := obj/utils.o
+# automatic
+# * := utils
+# automatic
+# < := src/utils.c
+# automatic
+# + := src/utils.c
+# automatic
+# % := 
+# automatic
+# ^ := src/utils.c
+ 
+# automatic
+# ? := src/utils.c
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/17=12%
 #  recipe to execute (from 'Makefile', line 34):
 	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+obj/main.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 Makefile:
@@ -303,13 +319,6 @@ clean:
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 38):
 	@rm -rf $(OBJDIR)
-
-# Not a target:
-src/main.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-06-05 22:12:49.74003472
-#  File has been updated.
-#  Successfully updated.
 
 re: fclean all
 #  Phony target (prerequisite of .PHONY).
@@ -329,7 +338,9 @@ all: philo
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/6=0%
 
 fclean:
 #  Phony target (prerequisite of .PHONY).
@@ -340,23 +351,28 @@ fclean:
 	@rm -rf $(OBJDIR)
 	@rm -f $(NAME)
 
-philo: obj/life_cycle.o obj/main.o
+philo: obj/utils.o obj/life_cycle.o obj/main.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-06-05 22:18:27.758503926
+#  Last modified 2022-06-07 03:17:04.495478281
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/6=0%
 #  recipe to execute (from 'Makefile', line 31):
 	$(CC) $(CFLAGS) $(OBJ) -o $@
 
-obj/life_cycle.o: src/life_cycle.c
+# Not a target:
+src/utils.c:
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'life_cycle'
-#  Last modified 2022-06-05 22:18:00.506070135
+#  Last modified 2022-06-07 03:21:12.829256055
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 34):
-	@mkdir -p $(@D)
-	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+obj/life_cycle.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 .PHONY: all clean fclean re
 #  Implicit rule search has not been done.
@@ -364,20 +380,19 @@ obj/life_cycle.o: src/life_cycle.c
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=13/1024=1%, Rehash=0, Collisions=0/40=0%
+# Load=13/1024=1%, Rehash=0, Collisions=0/38=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 28 / storage = 259 B / avg = 9 B
-# current buf: size = 8162 B / used = 259 B / count = 28 / avg = 9 B
- 
+# strcache buffers: 1 (0) / strings = 26 / storage = 233 B / avg = 8 B
+# current buf: size = 8162 B / used = 233 B / count = 26 / avg = 8 B
 
-# strcache performance: lookups = 50 / hit rate = 44%
+# strcache performance: lookups = 47 / hit rate = 44%
 # hash-table stats:
-# Load=28/8192=0%, Rehash=0, Collisions=0/50=0%
-# Finished Make data base on Sun Jun  5 22:18:45 2022
+# Load=26/8192=0%, Rehash=0, Collisions=0/47=0%
+# Finished Make data base on Tue Jun  7 03:21:12 2022
 
  
