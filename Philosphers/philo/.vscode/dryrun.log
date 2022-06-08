@@ -1,0 +1,13 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/fcil/Desktop/42Cursus/Philosphers'
+mkdir -p obj
+gcc -ggdb -I ./include -c src/actions.c -o obj/actions.o
+mkdir -p obj
+gcc -ggdb -I ./include -c src/life_cycle.c -o obj/life_cycle.o
+mkdir -p obj
+gcc -ggdb -I ./include -c src/main.c -o obj/main.o
+mkdir -p obj
+gcc -ggdb -I ./include -c src/utils.c -o obj/utils.o
+gcc -ggdb -I ./include ./obj/actions.o ./obj/life_cycle.o ./obj/main.o ./obj/utils.o -o philo
+make: Leaving directory `/Users/fcil/Desktop/42Cursus/Philosphers'
+ 

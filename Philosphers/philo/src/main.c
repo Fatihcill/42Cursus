@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 20:11:36 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/07 03:33:04 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/08 17:40:35 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	init(int ac, char **av, t_env *env)
 		printf("Error: Philosopher count cannot be higher than 200\n");
 		exit(-1);
 	}
+	env->is_running = true;
 }
 
 void	init_philo(t_env *env)
@@ -47,6 +48,7 @@ void	init_philo(t_env *env)
 		env->philos[i].chopstick_l = i;
 		env->philos[i].chopstick_r = (i + 1) % env->number_of_philo;
 		env->philos[i].count_eat = 0;
+		env->philos[i].last_eat = 0;
 		env->philos[i].env = env;
 		env->philos[i].done = false;
 	}
@@ -61,6 +63,7 @@ void	init_threads(t_env *env)
 	{
 		pthread_create(&env->philos[i].th_id, NULL,
 			life_cycle, (void *)&env->philos[i]);
+		//usleep(100);
 	}
 }
 
