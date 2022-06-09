@@ -6,19 +6,38 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 22:29:11 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/08 17:30:41 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/09 16:28:19 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	join_threads(t_env *env)
+void	*life_cycle_checker(void *arg)
 {
-	int	i;
+	int			i;
+	uint64_t	timestamp;
+	t_env		*env;
 
-	i = -1;
-	while (++i < env->number_of_philo)
-		pthread_join(env->philos[i].th_id, NULL);
+	env = (t_env *)arg;
+	i = 0;
+	while (1)
+	{
+		if (env->count_done == env->number_of_philo)
+			break ;
+		if (i == env->number_of_philo)
+			i = 0;
+		usleep(1000);
+		timestamp = get_time_ms();
+		if (!env->philos[i].done
+			&& (int)(timestamp - env->philos[i].last_eat > env->time_to_die))
+		{
+			printf("%llu %d %s\n", timestamp, env->philos[i].id, "died");
+			env->is_running = false;
+			break ;
+		}
+		i++;
+	}
+	return (NULL);
 }
 
 void	*life_cycle(void *arg)
@@ -30,21 +49,21 @@ void	*life_cycle(void *arg)
 	if (philo->id % 2 == 1)
 	{
 		philo_think(philo);
-		usleep(philo->env->time_to_eat * 0.25 * 1000);
+		usleep(5000);
 	}
-	while (philo->env->is_running)
+	while (!philo->done)
 	{
 		take_forks(philo, get_time_ms());
 		philo_eat(philo, get_time_ms());
 		leave_forks(philo);
+		philo_think(philo);
 		if (philo->count_eat >= philo->env->must_eat)
 		{
 			philo->done = true;
-			philo->env->is_running = false;
-			//philo->env->count_done++;
+			philo->env->count_done++;
+			break ;
 		}
 		philo_sleep(philo);
-		philo_think(philo);
 	}
 	return (NULL);
 }

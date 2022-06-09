@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 20:10:10 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/08 17:27:26 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/09 12:08:04 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void		init_mutexes(t_env *env);
 
 //life_cycle
 void		*life_cycle(void *arg);
-void		join_threads(t_env *env);
+void		*life_cycle_checker(void *arg);
 
 //utils
 void		destroy_threads(t_env *env);

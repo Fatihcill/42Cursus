@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 20:11:36 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/08 17:40:35 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/09 12:56:20 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	init_philo(t_env *env)
 	i = -1;
 	while (++i < env->number_of_philo)
 	{
-		env->philos->id = i;
+		env->philos[i].id = i + 1;
 		env->philos[i].chopstick_l = i;
 		env->philos[i].chopstick_r = (i + 1) % env->number_of_philo;
 		env->philos[i].count_eat = 0;
@@ -56,15 +56,17 @@ void	init_philo(t_env *env)
 
 void	init_threads(t_env *env)
 {
-	int	i;
+	int			i;
+	pthread_t	life_cycle_id;
 
 	i = -1;
 	while (++i < env->number_of_philo)
 	{
 		pthread_create(&env->philos[i].th_id, NULL,
 			life_cycle, (void *)&env->philos[i]);
-		//usleep(100);
 	}
+	pthread_create(&life_cycle_id, NULL, &life_cycle_checker, env);
+	pthread_join(life_cycle_id, NULL);
 }
 
 void	init_mutexes(t_env *env)
@@ -92,7 +94,6 @@ int	main(int ac, char **av)
 	init_philo(&env);
 	init_mutexes(&env);
 	init_threads(&env);
-	join_threads(&env);
 	destroy_threads(&env);
 	destroy_mutexes(&env);
 	free(env.philos);
