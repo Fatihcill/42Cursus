@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 22:29:11 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/13 14:38:15 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/13 16:13:56 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	*life_cycle_checker(void *arg)
 		if (i == env->number_of_philo)
 			i = 0;
 		usleep(1000);
-		timestamp = get_time_ms();
+		timestamp = get_time_ms() - env->start_time;
 		if (!env->philos[i].done
 			&& ((int)(timestamp - env->philos[i].last_eat) > env->time_to_die))
 		{
@@ -45,7 +45,7 @@ void	*life_cycle(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-	philo->last_eat = get_time_ms();
+	philo->last_eat = get_time_ms() - philo->env->start_time;
 	if (philo->id % 2 == 1)
 	{
 		philo_think(philo);
@@ -53,8 +53,8 @@ void	*life_cycle(void *arg)
 	}
 	while (!philo->done)
 	{
-		take_forks(philo, get_time_ms());
-		philo_eat(philo, get_time_ms());
+		take_forks(philo, get_time_ms() - philo->env->start_time);
+		philo_eat(philo, get_time_ms() - philo->env->start_time);
 		leave_forks(philo);
 		philo_think(philo);
 		if (philo->count_eat == philo->env->must_eat)

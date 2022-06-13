@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 20:11:36 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/09 12:56:20 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/13 16:08:25 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	init(int ac, char **av, t_env *env)
 		printf("Error: Philosopher count cannot be higher than 200\n");
 		exit(-1);
 	}
+	env->start_time = get_time_ms();
 	env->is_running = true;
 }
 

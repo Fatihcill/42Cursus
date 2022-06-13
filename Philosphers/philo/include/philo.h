@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 20:10:10 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/09 12:08:04 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/13 16:07:57 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_env
 	int				must_eat;
 	int				count_done;
 	bool			is_running;
+	uint64_t		start_time;
 	t_philo			*philos;
 	pthread_mutex_t	*chopsticks;
 }				t_env;

@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 12:30:49 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/13 14:34:21 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/13 16:12:36 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,13 @@ void	philo_eat(t_philo *philo, uint64_t timestamp)
 
 void	philo_sleep(t_philo *philo)
 {
-	printf("%llu %d %s\n", get_time_ms(), philo->id, "is sleeping");
+	printf("%llu %d %s\n", get_time_ms() - philo->env->start_time,
+		philo->id, "is sleeping");
 	usleep(philo->env->time_to_sleep * 1000);
 }
 
 void	philo_think(t_philo *philo)
 {
-	printf("%llu %d %s\n", get_time_ms(), philo->id, "is thinking");
+	printf("%llu %d %s\n", get_time_ms() - philo->env->start_time,
+		philo->id, "is thinking");
 }
