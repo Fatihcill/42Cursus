@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.h                                            :+:      :+:    :+:   */
+/*   bonus.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 20:10:10 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/13 16:24:16 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/13 16:41:02 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILO_H
-# define PHILO_H
+#ifndef BONUS_H
+# define BONUS_H
 
 # include "stdio.h"
 # include "unistd.h"
@@ -56,8 +56,7 @@ typedef struct s_env
 //main
 void		init(int ac, char **av, t_env *env);
 void		init_philo(t_env *env);
-void		init_threads(t_env *env);
-void		init_mutexes(t_env *env);
+void		init_sem(t_env *env);
 
 //life_cycle
 void		*life_cycle(void *arg);
