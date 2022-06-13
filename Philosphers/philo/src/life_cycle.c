@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 22:29:11 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/09 16:28:19 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/13 14:38:15 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	*life_cycle_checker(void *arg)
 		usleep(1000);
 		timestamp = get_time_ms();
 		if (!env->philos[i].done
-			&& (int)(timestamp - env->philos[i].last_eat > env->time_to_die))
+			&& ((int)(timestamp - env->philos[i].last_eat) > env->time_to_die))
 		{
 			printf("%llu %d %s\n", timestamp, env->philos[i].id, "died");
 			env->is_running = false;
@@ -49,7 +49,7 @@ void	*life_cycle(void *arg)
 	if (philo->id % 2 == 1)
 	{
 		philo_think(philo);
-		usleep(5000);
+		usleep(philo->env->time_to_eat * 0.25 * 1000);
 	}
 	while (!philo->done)
 	{
@@ -57,7 +57,7 @@ void	*life_cycle(void *arg)
 		philo_eat(philo, get_time_ms());
 		leave_forks(philo);
 		philo_think(philo);
-		if (philo->count_eat >= philo->env->must_eat)
+		if (philo->count_eat == philo->env->must_eat)
 		{
 			philo->done = true;
 			philo->env->count_done++;

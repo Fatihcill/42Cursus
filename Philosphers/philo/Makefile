@@ -6,7 +6,7 @@
 #    By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/22 22:58:51 by fcil              #+#    #+#              #
-#    Updated: 2022/06/05 22:18:15 by fcil             ###   ########.fr        #
+#    Updated: 2022/06/13 14:38:48 by fcil             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ NAME	:= philo
 
 CC		:= gcc
 INCLUDE	:= ./include
-#CFLAGS	:= -Wall -Wextra -Werror -ggdb -I $(INCLUDE)
-CFLAGS	:= -ggdb -I $(INCLUDE)
+CFLAGS	:= -Wall -Wextra -Werror -I $(INCLUDE)
+#CFLAGS	:= -ggdb -I $(INCLUDE)
 
 #TODO: -GGDB WILL BE DELETED -Werror
 
