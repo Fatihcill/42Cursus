@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 20:11:36 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/15 12:25:21 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/15 12:58:11 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,5 @@ int	main(int ac, char **av)
 	init_threads(&env);
 	destroy_threads(&env);
 	destroy_mutexes(&env);
-	free(env.philos);
-	free(env.chopsticks);
 	return (0);
 }

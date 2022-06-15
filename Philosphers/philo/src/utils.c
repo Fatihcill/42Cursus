@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 03:20:54 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/14 12:42:42 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/15 12:58:34 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	destroy_threads(t_env *env)
 	i = -1;
 	while (++i < env->number_of_philo)
 		pthread_detach(env->philos[i].th_id);
+	free(env->philos);
 }
 
 void	destroy_mutexes(t_env *env)
@@ -28,6 +29,7 @@ void	destroy_mutexes(t_env *env)
 	i = -1;
 	while (++i < env->number_of_philo)
 		pthread_mutex_destroy(&env->chopsticks[i]);
+	free(env->chopsticks);
 }
 
 uint64_t	get_time_ms(void)
