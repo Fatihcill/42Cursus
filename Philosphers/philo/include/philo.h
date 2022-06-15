@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 20:10:10 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/13 16:07:57 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/14 12:40:10 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void		*life_cycle_checker(void *arg);
 void		destroy_threads(t_env *env);
 void		destroy_mutexes(t_env *env);
 uint64_t	get_time_ms(void);
+int			ft_atoi(char *s);
 
 //actions
 void		take_forks(t_philo *philo, uint64_t timestamp);

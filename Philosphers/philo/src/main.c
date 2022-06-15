@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 20:11:36 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/13 16:08:25 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/15 12:25:21 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	init(int ac, char **av, t_env *env)
 {
-	env->number_of_philo = atoi(av[1]);
-	env->time_to_die = atoi(av[2]);
-	env->time_to_eat = atoi(av[3]);
-	env->time_to_sleep = atoi(av[4]);
+	env->number_of_philo = ft_atoi(av[1]);
+	env->time_to_die = ft_atoi(av[2]);
+	env->time_to_eat = ft_atoi(av[3]);
+	env->time_to_sleep = ft_atoi(av[4]);
 	env->must_eat = -1;
 	if (ac == 6)
-		env->must_eat = atoi(av[5]);
+		env->must_eat = ft_atoi(av[5]);
 	if (env->time_to_die < 60 || env->time_to_eat < 60
 		|| env->time_to_sleep < 60)
 	{
