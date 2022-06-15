@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/06/13 14:36:41 by fcil              #+#    #+#              #
-#    Updated: 2022/06/13 14:45:00 by fcil             ###   ########.fr        #
+#    Created: 2022/03/22 22:58:51 by fcil              #+#    #+#              #
+#    Updated: 2022/06/15 13:44:53 by fcil             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME	:= philo_bonus
 CC		:= gcc
 INCLUDE	:= ./include
 CFLAGS	:= -Wall -Wextra -Werror -I $(INCLUDE)
+#CFLAGS	:= -ggdb -I $(INCLUDE)
 
 SRCDIR	:= src
 SRC		:= $(shell find $(SRCDIR) -name '*.c')
@@ -28,8 +29,8 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $@
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
-	@mkdir -o $(@D)
-	$(CC) $(CFLAGS) -c $< -O $@
+	@mkdir -p $(@D)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@rm -rf $(OBJDIR)
@@ -38,6 +39,6 @@ fclean:
 	@rm -rf $(OBJDIR)
 	@rm -f $(NAME)
 
-re: fclean all
+re:	fclean all
 
 .PHONY: all clean fclean re

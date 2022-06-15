@@ -6,22 +6,21 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 16:33:22 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/13 16:43:18 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/15 17:27:37 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "bonus.h"
 
 void	init(int ac, char **av, t_env *env)
 {
-	env->number_of_philo = atoi(av[1]);
-	env->time_to_die = atoi(av[2]);
-	env->time_to_eat = atoi(av[3]);
-	env->time_to_sleep = atoi(av[4]);
+	env->number_of_philo = ft_atoi(av[1]);
+	env->time_to_die = ft_atoi(av[2]);
+	env->time_to_eat = ft_atoi(av[3]);
+	env->time_to_sleep = ft_atoi(av[4]);
 	env->must_eat = -1;
 	if (ac == 6)
-		env->must_eat = atoi(av[5]);
+		env->must_eat = ft_atoi(av[5]);
 	if (env->time_to_die < 60 || env->time_to_eat < 60
 		|| env->time_to_sleep < 60)
 	{
@@ -42,7 +41,6 @@ void	init_philo(t_env *env)
 	int	i;
 
 	env->philos = malloc(sizeof(t_philo) * env->number_of_philo);
-	env->chopsticks = malloc(sizeof(pthread_mutex_t) * env->number_of_philo);
 	i = -1;
 	while (++i < env->number_of_philo)
 	{
@@ -56,10 +54,12 @@ void	init_philo(t_env *env)
 void	init_sem(t_env *env)
 {
 	sem_unlink("./chopsticks");
-	env->chopsticks = sem_open("./chopsticks", O_CREAT, S_IRWXG, env->number_of_philo);
-	if(env->chopsticks == SEM_FAILED)
+	env->chopsticks = sem_open("./chopsticks", O_CREAT,
+			S_IRWXG, env->number_of_philo);
+	if (env->chopsticks == SEM_FAILED)
 	{
-		
+		printf("Error! Sem_Open");
+		exit(-1);
 	}
 }
 
@@ -76,9 +76,7 @@ int	main(int ac, char **av)
 	init(ac, av, &env);
 	init_philo(&env);
 	init_sem(&env);
-	// destroy_threads(&env);
-	// destroy_mutexes(&env);
+	process(&env);
 	free(env.philos);
-	//free(env.chopsticks);
 	return (0);
 }

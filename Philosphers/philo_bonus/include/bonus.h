@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 20:10:10 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/13 16:41:02 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/15 17:24:37 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,14 @@ void		init_philo(t_env *env);
 void		init_sem(t_env *env);
 
 //life_cycle
-void		*life_cycle(void *arg);
+void		life_cycle(t_philo *philo);
 void		*life_cycle_checker(void *arg);
+void		process(t_env *env);
+void		*waitp(void *arg);
 
 //utils
-void		destroy_threads(t_env *env);
-void		destroy_mutexes(t_env *env);
 uint64_t	get_time_ms(void);
+int			ft_atoi(char *s);
 
 //actions
 void		take_forks(t_philo *philo, uint64_t timestamp);

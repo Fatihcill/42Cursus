@@ -246,16 +246,6 @@ do
 	echo -ne $GREEN
 	echo 200 PHILOSOPHES + av_5
 	echo -ne $WHITE
-	test=$(./../$philo/$philo 200 13000 100 100 10 | grep eating | wc -l)
-	if [ "$test" -ge 2000 ];
-	then
-		echo -n "Test 200 philosophes + av5 - $philo :"
-		echo -ne "\033[0;32m \xE2\x9C\x94	\033[0m"
-	else
-		echo -n "Test 200 philosophes + av5 - $philo :"
-		echo -ne "\033[0;31m x	\033[0m"
-	fi
-	echo
 
 done
 
