@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 12:06:07 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/15 17:29:30 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/16 14:36:12 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	process(t_env *env)
 		}
 		if (env->philos[i].pid == 0)
 			life_cycle(&env->philos[i]);
-		usleep(100);
 	}
 	pthread_create(&env->is_running, NULL, waitp, env);
+	pthread_detach(env->is_running);
 }
 
 void	life_cycle(t_philo *philo)
@@ -43,14 +43,15 @@ void	life_cycle(t_philo *philo)
 	}
 	philo->last_eat = 0;
 	pthread_create(&checklife, NULL, life_cycle_checker, philo);
-	while (!philo->env->is_died)
+	pthread_detach(checklife);
+	while (1)
 	{
-		take_forks(philo, get_time_ms());
-		philo_eat(philo, get_time_ms());
+		take_forks(philo);
+		philo_eat(philo);
 		leave_forks(philo);
 		philo_think(philo);
 		if (philo->count_eat == philo->env->must_eat)
-			break ;
+			exit(1);
 		philo_sleep(philo);
 	}
 	exit(1);
@@ -66,14 +67,14 @@ void	*life_cycle_checker(void *arg)
 	{
 		if (philo->count_eat == philo->env->must_eat)
 			break ;
-		usleep(1000);
 		timestamp = get_time_ms() - philo->env->start_time;
 		if (((int)(timestamp - philo->last_eat)) > philo->env->time_to_die)
 		{
 			printf("%llu %d %s\n", timestamp, philo->id, "died");
-			philo->env->is_died = true;
-			exit (1);
+			sem_post(philo->env->isdied);
+			break ;
 		}
+		usleep(100);
 	}
 	return (NULL);
 }
@@ -81,23 +82,12 @@ void	*life_cycle_checker(void *arg)
 void	*waitp(void *arg)
 {
 	int		i;
-	int		res;
 	t_env	*env;
 
-	i = -1;
 	env = (t_env *)arg;
-	while (true)
-	{
-		waitpid(-1, &res, 0);
-		if (WIFEXITED(res))
-		{
-			while (++i < env->number_of_philo)
-				kill(env->philos[i].pid, SIGKILL);
-			break ;
-		}
-		usleep(100);
-	}
-	sem_close(env->chopsticks);
-	sem_unlink("./chopsticks");
+	i = -1;
+	while (++i < env->number_of_philo)
+		waitpid(-1, NULL, 0);
+	sem_post(env->isdied);
 	return (NULL);
 }

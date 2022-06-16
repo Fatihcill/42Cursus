@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 12:05:29 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/14 12:59:23 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/16 14:19:19 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,26 @@ int	ft_atoi(char *s)
 	while (s[i] >= '0' && s[i] <= '9')
 		res = res * 10 + (s[i++] - 48);
 	return (res * sing);
+}
+
+void	destroy_semaphores(void)
+{
+	sem_unlink("./chopsticks");
+	sem_unlink("./isdied");
+}
+
+static void	destroy_zombies(t_env *env)
+{
+	int	i;
+
+	i = -1;
+	while (++i < env->number_of_philo)
+		kill(env->philos[i].pid, SIGKILL);
+}
+
+void	destroy(t_env *env)
+{
+	destroy_zombies(env);
+	destroy_semaphores();
+	free(env->philos);
 }

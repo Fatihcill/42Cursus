@@ -6,28 +6,23 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 20:10:10 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/15 17:24:37 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/16 14:25:20 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BONUS_H
 # define BONUS_H
 
-# include "stdio.h"
-# include "unistd.h"
-# include "stdlib.h"
-# include "semaphore.h"
-# include "pthread.h"
-# include "stdint.h"
-# include "sys/time.h"
+# include <stdio.h>
+# include <stdlib.h>
 # include <pthread.h>
-# include <fcntl.h>
+# include <stdbool.h>
+# include <unistd.h>
 # include <sys/time.h>
-# include <sys/stat.h> 
-# include "stdbool.h"
-# include "sys/time.h"
-# include "sys/wait.h"
+# include <semaphore.h>
+# include <stdint.h>
 # include <signal.h>
+# include <fcntl.h>
 
 typedef struct s_env	t_env;
 typedef struct s_philo
@@ -46,11 +41,11 @@ typedef struct s_env
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				must_eat;
-	bool			is_died;
 	uint64_t		start_time;
 	pthread_t		is_running;
 	t_philo			*philos;
 	sem_t			*chopsticks;
+	sem_t			*isdied;
 }				t_env;
 
 //main
@@ -67,11 +62,13 @@ void		*waitp(void *arg);
 //utils
 uint64_t	get_time_ms(void);
 int			ft_atoi(char *s);
+void		destroy(t_env *env);
+void		destroy_semaphores(void);
 
 //actions
-void		take_forks(t_philo *philo, uint64_t timestamp);
+void		take_forks(t_philo *philo);
 void		leave_forks(t_philo *philo);
-void		philo_eat(t_philo *philo, uint64_t timestamp);
+void		philo_eat(t_philo *philo);
 void		philo_sleep(t_philo *philo);
 void		philo_think(t_philo *philo);
 

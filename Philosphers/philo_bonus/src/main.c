@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 16:33:22 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/15 17:27:37 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/16 14:24:31 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	init(int ac, char **av, t_env *env)
 		exit(-1);
 	}
 	env->start_time = get_time_ms();
-	env->is_died = false;
 }
 
 void	init_philo(t_env *env)
@@ -53,10 +52,12 @@ void	init_philo(t_env *env)
 
 void	init_sem(t_env *env)
 {
-	sem_unlink("./chopsticks");
+	destroy_semaphores();
 	env->chopsticks = sem_open("./chopsticks", O_CREAT,
 			S_IRWXG, env->number_of_philo);
-	if (env->chopsticks == SEM_FAILED)
+	env->isdied = sem_open("./isdied", O_CREAT,
+			S_IRWXG, 0);
+	if (env->chopsticks == SEM_FAILED || env->isdied == SEM_FAILED)
 	{
 		printf("Error! Sem_Open");
 		exit(-1);
@@ -77,6 +78,7 @@ int	main(int ac, char **av)
 	init_philo(&env);
 	init_sem(&env);
 	process(&env);
-	free(env.philos);
+	sem_wait(env.isdied);
+	destroy(&env);
 	return (0);
 }

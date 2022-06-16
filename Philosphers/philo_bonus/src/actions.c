@@ -6,17 +6,17 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 12:30:49 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/15 12:52:27 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/16 12:56:51 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bonus.h"
 
-void	take_forks(t_philo *philo, uint64_t timestamp)
+void	take_forks(t_philo *philo)
 {
 	uint64_t	reel_time;
 
-	reel_time = timestamp - get_time_ms();
+	reel_time = get_time_ms() - philo->env->start_time;
 	sem_wait(philo->env->chopsticks);
 	printf("%llu %d %s\n", reel_time, philo->id, "has taken a fork");
 	sem_wait(philo->env->chopsticks);
@@ -29,11 +29,11 @@ void	leave_forks(t_philo *philo)
 	sem_post(philo->env->chopsticks);
 }
 
-void	philo_eat(t_philo *philo, uint64_t timestamp)
+void	philo_eat(t_philo *philo)
 {
 	uint64_t	reel_time;
 
-	reel_time = timestamp - philo->env->start_time;
+	reel_time = get_time_ms() - philo->env->start_time;
 	printf("%llu %d %s\n", reel_time, philo->id, "is eating");
 	philo->last_eat = reel_time;
 	philo->count_eat++;
