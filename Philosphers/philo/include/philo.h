@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 20:10:10 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/14 12:40:10 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/25 13:33:16 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ uint64_t	get_time_ms(void);
 int			ft_atoi(char *s);
 
 //actions
-void		take_forks(t_philo *philo, uint64_t timestamp);
+void		take_forks(t_philo *philo);
 void		leave_forks(t_philo *philo);
-void		philo_eat(t_philo *philo, uint64_t timestamp);
+void		philo_eat(t_philo *philo);
 void		philo_sleep(t_philo *philo);
 void		philo_think(t_philo *philo);
 

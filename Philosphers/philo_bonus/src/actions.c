@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 12:30:49 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/16 12:56:51 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/25 13:40:25 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ void	take_forks(t_philo *philo)
 {
 	uint64_t	reel_time;
 
-	reel_time = get_time_ms() - philo->env->start_time;
 	sem_wait(philo->env->chopsticks);
+	reel_time = get_time_ms() - philo->env->start_time;
 	printf("%llu %d %s\n", reel_time, philo->id, "has taken a fork");
 	sem_wait(philo->env->chopsticks);
+	reel_time = get_time_ms() - philo->env->start_time;
 	printf("%llu %d %s\n", reel_time, philo->id, "has taken a fork");
 }
 

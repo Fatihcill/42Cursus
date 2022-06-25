@@ -1,8 +1,0 @@
-{
-	"makefile.extensionOutputFolder": "./.vscode",
-	"files.associations": {
-		"semaphore.h": "c",
-		"time.h": "c",
-		"stdint.h": "c"
-	}
-}

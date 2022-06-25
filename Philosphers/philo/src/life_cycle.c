@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 22:29:11 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/15 12:25:22 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/25 13:33:33 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ void	*life_cycle(void *arg)
 	}
 	while (!philo->done)
 	{
-		take_forks(philo, get_time_ms());
-		philo_eat(philo, get_time_ms());
+		take_forks(philo);
+		philo_eat(philo);
 		leave_forks(philo);
 		philo_think(philo);
 		if (philo->count_eat == philo->env->must_eat)
