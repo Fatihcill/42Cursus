@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 20:10:10 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/16 14:25:20 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/25 14:08:56 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_env
 	t_philo			*philos;
 	sem_t			*chopsticks;
 	sem_t			*isdied;
+	sem_t			*typing;
 }				t_env;
 
 //main

@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 12:05:29 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/16 14:19:19 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/25 14:04:36 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	destroy_semaphores(void)
 {
 	sem_unlink("./chopsticks");
 	sem_unlink("./isdied");
+	sem_unlink("./typing");
 }
 
 static void	destroy_zombies(t_env *env)

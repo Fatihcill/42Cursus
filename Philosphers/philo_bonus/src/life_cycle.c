@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 12:06:07 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/25 13:41:52 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/25 14:08:22 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	*life_cycle_checker(void *arg)
 		timestamp = get_time_ms() - philo->env->start_time;
 		if (((int)(timestamp - philo->last_eat)) > philo->env->time_to_die)
 		{
+			sem_wait(philo->env->typing);
 			printf("%llu %d %s\n", timestamp, philo->id, "died");
 			sem_post(philo->env->isdied);
 			break ;

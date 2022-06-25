@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 16:33:22 by fcil              #+#    #+#             */
-/*   Updated: 2022/06/16 14:24:31 by fcil             ###   ########.fr       */
+/*   Updated: 2022/06/25 14:06:59 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ void	init_sem(t_env *env)
 			S_IRWXG, env->number_of_philo);
 	env->isdied = sem_open("./isdied", O_CREAT,
 			S_IRWXG, 0);
+	env->typing = sem_open("./typing", O_CREAT,
+			S_IRWXG, 1);
 	if (env->chopsticks == SEM_FAILED || env->isdied == SEM_FAILED)
 	{
 		printf("Error! Sem_Open");
