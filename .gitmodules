@@ -1,3 +1,6 @@
 [submodule "fract-ol/minilibx-linux"]
 	path = fract-ol/minilibx-linux
 	url = https://github.com/42Paris/minilibx-linux.git
+[submodule "minishell"]
+	path = minishell
+	url = https://github.com/cryonayes/minishell.git
