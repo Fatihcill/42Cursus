@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 15:38:33 by fcil              #+#    #+#             */
-/*   Updated: 2022/07/05 12:42:07 by fcil             ###   ########.fr       */
+/*   Updated: 2022/07/05 13:02:07 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,21 @@
 static void	action(int sig, siginfo_t *info, void *context)
 {
 	static int				i = 0;
-	static pid_t			client_pid = 0;
 	static unsigned char	c = 0;
 
 	(void)context;
-	if (!client_pid)
-		client_pid = info->si_pid;
 	c |= (sig == SIGUSR2);
 	if (++i == 8)
 	{
 		i = 0;
 		if (!c)
 		{
-			kill(client_pid, SIGUSR2);
-			client_pid = 0;
+			kill(info->si_pid, SIGUSR2);
 			return ;
-		}
+		}	
 		ft_putchar_fd(c, 1);
 		c = 0;
-		kill(client_pid, SIGUSR1);
+		kill(info->si_pid, SIGUSR1);
 	}
 	else
 		c <<= 1;
