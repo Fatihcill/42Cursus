@@ -1,0 +1,6 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/fcil/Desktop/42Cursus/CPP'
+make: Leaving directory '/home/fcil/Desktop/42Cursus/CPP'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+

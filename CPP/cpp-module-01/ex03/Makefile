@@ -6,11 +6,11 @@
 #    By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/03 11:41:37 by fcil              #+#    #+#              #
-#    Updated: 2022/08/08 10:28:06 by fcil             ###   ########.fr        #
+#    Updated: 2022/08/08 11:24:05 by fcil             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ZombieHorde
+NAME = UnnecessaryViolence
 CC = c++ -std=c++98
 FLAGS = -Wall -Wextra -Werror
 
