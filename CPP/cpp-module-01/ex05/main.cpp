@@ -5,20 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/08 12:54:35 by fcil              #+#    #+#             */
-/*   Updated: 2022/08/08 15:06:52 by fcil             ###   ########.fr       */
+/*   Created: 2022/08/08 15:29:57 by fcil              #+#    #+#             */
+/*   Updated: 2022/08/08 16:02:03 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Replace.hpp"
+#include "Harl.hpp"
 
-int main(int argc, char **argv)
+int main(void)
 {
-	if (argc != 4)
-	{
-		std::cout << "Invalid number of arg" << std::endl;
-		return (1);
-	}
-	Replace::replace(argv[1], argv[2], argv[3]);
+	Harl h;
+
+	h.complain("DEBUG");
+	h.complain("INFO");
+	h.complain("WARNING");
+	h.complain("ERROR");
 	return (0);
 }
