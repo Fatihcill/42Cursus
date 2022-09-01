@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 11:39:37 by fcil              #+#    #+#             */
-/*   Updated: 2022/08/11 17:43:16 by fcil             ###   ########.fr       */
+/*   Updated: 2022/08/13 23:51:52 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ ScavTrap::ScavTrap(const std::string &name)
 
 ScavTrap::ScavTrap(const ScavTrap &s)
 {
-	std::cout << "ScavTrap:	copy Constructor has been called" << std::endl;
+	std::cout << "ScavTrap:	copy ConstructoOr has been called" << std::endl;
 	*this = s;
 }
 

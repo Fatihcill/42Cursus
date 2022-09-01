@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 10:54:22 by fcil              #+#    #+#             */
-/*   Updated: 2022/08/12 11:54:25 by fcil             ###   ########.fr       */
+/*   Created: 2022/08/14 14:33:27 by fcil              #+#    #+#             */
+/*   Updated: 2022/08/14 15:12:12 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
+ #pragma once
 
-int	main()
-{
-	DiamondTrap	a("UWU");
+ #include "WrongAnimal.hpp"
 
-	a.attack("Fatih");
-	a.takeDamage(5);
-	a.beRepaired(3);
-	a.highFivesGuys();
-	a.guardGate();
-	a.whoAmI();
-}
+ class WrongCat : public WrongAnimal
+ {
+ public:
+	WrongCat(void);
+	WrongCat(WrongCat const &wc);
+	virtual ~WrongCat();
+	WrongCat	&operator = (WrongCat const &wc);
+	void		makeSound(void) const;
+};

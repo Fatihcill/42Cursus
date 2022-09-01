@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 10:54:22 by fcil              #+#    #+#             */
-/*   Updated: 2022/08/12 11:54:25 by fcil             ###   ########.fr       */
+/*   Created: 2022/08/12 12:46:30 by fcil              #+#    #+#             */
+/*   Updated: 2022/08/14 15:26:17 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
+#pragma once
 
-int	main()
+#include "Animal.hpp"
+
+class Dog : public Animal
 {
-	DiamondTrap	a("UWU");
+public:
+	Dog(void);
+	Dog(Dog const &d);
+	virtual ~Dog();
+	Dog		&operator = (Dog const &d);
+	void	makeSound(void) const;
+};
 
-	a.attack("Fatih");
-	a.takeDamage(5);
-	a.beRepaired(3);
-	a.highFivesGuys();
-	a.guardGate();
-	a.whoAmI();
-}

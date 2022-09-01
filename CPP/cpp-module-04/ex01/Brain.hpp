@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 10:54:22 by fcil              #+#    #+#             */
-/*   Updated: 2022/08/12 11:54:25 by fcil             ###   ########.fr       */
+/*   Created: 2022/08/14 15:17:17 by fcil              #+#    #+#             */
+/*   Updated: 2022/08/14 15:24:39 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
+#pragma once
 
-int	main()
+#include <iostream>
+#include <string>
+
+#define N_IDEAS 100
+class Brain
 {
-	DiamondTrap	a("UWU");
+private:
+	std::string	ideas[N_IDEAS];
 
-	a.attack("Fatih");
-	a.takeDamage(5);
-	a.beRepaired(3);
-	a.highFivesGuys();
-	a.guardGate();
-	a.whoAmI();
-}
+public:
+	Brain();
+	Brain(Brain const & b);
+	~Brain();
+	Brain 		&operator=(Brain const & b);
+	std::string	*getIdeas() const;
+};

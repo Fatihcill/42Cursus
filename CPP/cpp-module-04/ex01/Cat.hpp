@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 10:54:22 by fcil              #+#    #+#             */
-/*   Updated: 2022/08/12 11:54:25 by fcil             ###   ########.fr       */
+/*   Created: 2022/08/12 12:36:39 by fcil              #+#    #+#             */
+/*   Updated: 2022/08/14 15:27:27 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
+#pragma once
 
-int	main()
+#include "Animal.hpp"
+#include "Brain.hpp"
+
+class Cat : public Animal
 {
-	DiamondTrap	a("UWU");
+private:
+	Brain	*brain;
 
-	a.attack("Fatih");
-	a.takeDamage(5);
-	a.beRepaired(3);
-	a.highFivesGuys();
-	a.guardGate();
-	a.whoAmI();
-}
+public:
+	Cat(void);
+	Cat(Cat const &c);
+	virtual ~Cat();
+	Cat		&operator = (Cat const &c);
+	void	makeSound(void) const;
+};

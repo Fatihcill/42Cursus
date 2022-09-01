@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 10:54:22 by fcil              #+#    #+#             */
-/*   Updated: 2022/08/12 11:54:25 by fcil             ###   ########.fr       */
+/*   Created: 2022/08/14 14:33:48 by fcil              #+#    #+#             */
+/*   Updated: 2022/08/14 15:12:05 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
+#pragma once
 
-int	main()
+#include <iostream>
+#include <string>
+
+class WrongAnimal
 {
-	DiamondTrap	a("UWU");
-
-	a.attack("Fatih");
-	a.takeDamage(5);
-	a.beRepaired(3);
-	a.highFivesGuys();
-	a.guardGate();
-	a.whoAmI();
-}
+protected:
+	std::string _type;
+public:
+	std::string			getType(void) const;
+	void				setType(const std::string &type);
+	void				makeSound(void) const;
+	WrongAnimal			&operator = (const WrongAnimal &wa);
+	WrongAnimal(const WrongAnimal &wa);
+	WrongAnimal(/* args */);
+	virtual ~WrongAnimal();
+};
