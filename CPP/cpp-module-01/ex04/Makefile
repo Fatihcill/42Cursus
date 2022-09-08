@@ -6,11 +6,11 @@
 #    By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/03 11:41:37 by fcil              #+#    #+#              #
-#    Updated: 2022/08/08 15:29:35 by fcil             ###   ########.fr        #
+#    Updated: 2022/09/08 13:23:36 by fcil             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Harl
+NAME = Replace
 CC = c++ -std=c++98
 FLAGS = -Wall -Wextra -Werror
 

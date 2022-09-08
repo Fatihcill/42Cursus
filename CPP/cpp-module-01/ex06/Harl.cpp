@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 15:30:03 by fcil              #+#    #+#             */
-/*   Updated: 2022/08/08 16:18:51 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/08 13:27:55 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	Harl::complain( std::string level )
 	for (int i = 1 ; i < 5 ; ++i)
 		if (level == level_set[i])
 			filter = i;
+	std::cout << "log: " << filter<<std::endl;
 	switch (filter)
 	{
 		case (0) :
