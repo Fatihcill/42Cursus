@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 10:30:02 by fcil              #+#    #+#             */
-/*   Updated: 2022/08/08 11:21:14 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/06 17:56:59 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,9 @@ int	main()
     int increment(int& deger){
         deger++; //Fonksiyona verilen değişkenin kendisini değiştirir.
     }
-    //Bu fonskiyonun pointerlı hali ise :
+    ?? Bu fonskiyonun pointerlı hali ise :
     int increment(int* deger){
         (*deger)++;
     }
+    ?? Referanslar sadece bir pointer kullanım kolaylığıdır.
 */

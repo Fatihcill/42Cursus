@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 12:06:55 by fcil              #+#    #+#             */
-/*   Updated: 2022/08/08 12:24:51 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/06 18:24:28 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ HumanA::~HumanA()
 
 void HumanA::attack() const
 {
-	std::cout << this->name << "  attacks with his " << this->weapon.getType() << std::endl;
+	std::cout << this->name << "  attacks with their " << this->weapon.getType() << std::endl;
 }

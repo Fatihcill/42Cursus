@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 12:14:09 by fcil              #+#    #+#             */
-/*   Updated: 2022/08/08 12:36:03 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/06 18:24:19 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ HumanB::~HumanB()
 void HumanB::attack() const
 {
 	if (this->weapon)
-		std::cout << this->name << " attack with his "
+		std::cout << this->name << " attack with their "
 		<< this->weapon->getType() << std::endl;
 	else
 		std::cout << this->name << ": no weapon set" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 12:53:25 by fcil              #+#    #+#             */
-/*   Updated: 2022/08/08 15:33:05 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/06 18:55:09 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 /**
  * @brief 
- *	ios::trunc (short for truncate) Dosya açılırken eski bir dosya varsa silinir ve yeni bir tane oluşturulur.
- *	eof()	Dosyadan okuma yapılırken dosyanın sonuna gelindiğinde true veya 1 değeri döndürür.
+ *	ios::trunc (short for truncate) Dosya açılırken eski bir dosya varsa 
+silinir ve yeni bir tane oluşturulur.
+ *	eof()	Dosyadan okuma yapılırken dosyanın sonuna gelindiğinde 
+ true veya 1 değeri döndürür.
  *	ifstream	dosya okuma modu.
  *	ofstream	dosya yazma modu.
  */
