@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 17:38:28 by fcil              #+#    #+#             */
-/*   Updated: 2022/09/10 14:50:22 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/10 15:16:14 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ public:
 	FragTrap(std::string const name);
 	FragTrap(FragTrap const &f);
 	FragTrap	&operator = (FragTrap const &b);
-	~FragTrap();
+	virtual ~FragTrap();
 
 	void	highFivesGuys(void);
 };
