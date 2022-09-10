@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 13:39:52 by fcil              #+#    #+#             */
-/*   Updated: 2022/08/09 17:28:26 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/09 17:35:59 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,6 @@ bool bsp(Point &a, Point &b, Point &c, Point &point)
 	bool	neg = false;
 	bool	pos = false;
 
-	std::cout << "a: " << A << std::endl
-	<< "B: " << B << std::endl
-	<< "C: " << C << std::endl;
 	neg = ((A < 0) || (B < 0) || (C < 0));
 	pos = ((A > 0) || (B > 0) || (C > 0));
 	return !(neg && pos);

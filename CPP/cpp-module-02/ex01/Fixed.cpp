@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:00:00 by fcil              #+#    #+#             */
-/*   Updated: 2022/08/09 12:52:00 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/09 16:17:43 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int Fixed::toInt(void) const
 	return (this->_fixed_point >> Fixed::_frac_bits);
 }
 
-Fixed& Fixed::operator = (const Fixed &f)
+Fixed& Fixed::operator=(const Fixed &f)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &f)

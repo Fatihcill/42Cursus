@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:00:00 by fcil              #+#    #+#             */
-/*   Updated: 2022/08/09 13:22:40 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/09 16:54:53 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,34 +94,26 @@ bool Fixed::operator!=(Fixed const &f)
 
 Fixed Fixed::operator-(Fixed const &f)
 {
-	Fixed	res;
-
-	res.setRawBits(this->_fixed_point - f._fixed_point);
-	return (res);
+	this->_fixed_point -= f.getRawBits();
+	return (*this);
 }
 
 Fixed Fixed::operator/(Fixed const &f)
 {
-	Fixed	res;
-
-	res.setRawBits(this->_fixed_point / f._fixed_point * (1 << this->_frac_bits));
-	return (res);
+	this->_fixed_point = (this->toFloat() / f.toFloat()) * (1 << _frac_bits);
+	return (*this);
 }
 
 Fixed Fixed::operator*(Fixed const &f)
 {
-	Fixed	res;
-
-	res.setRawBits(this->_fixed_point * f._fixed_point / (1 << this->_frac_bits));
-	return (res);
+	this->_fixed_point = (this->toFloat() * f.toFloat()) * (1 << _frac_bits);
+	return (*this);
 }
 
 Fixed Fixed::operator+(Fixed const &f)
 {
-	Fixed	res;
-
-	res.setRawBits(this->_fixed_point + f._fixed_point);
-	return (res);
+	this->_fixed_point += f._fixed_point;
+	return (*this);
 }
 
 Fixed& Fixed::operator--(void)
