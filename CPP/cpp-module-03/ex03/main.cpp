@@ -6,20 +6,40 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 10:54:22 by fcil              #+#    #+#             */
-/*   Updated: 2022/08/12 11:54:25 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/10 14:55:54 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-int	main()
+int main(void)
 {
-	DiamondTrap	a("UWU");
+	ClapTrap	ClapTrapA("Abyerk");
+	DiamondTrap	DiamondTrapB("Fatih");
 
-	a.attack("Fatih");
-	a.takeDamage(5);
-	a.beRepaired(3);
-	a.highFivesGuys();
-	a.guardGate();
-	a.whoAmI();
+	std::cout << std::endl;
+
+	std::cout << ClapTrapA << "\n" << DiamondTrapB << std::endl;
+
+	ClapTrapA.attack("Abyerk");
+	DiamondTrapB.takeDamage(ClapTrapA.getAttackDamage());
+
+	std::cout << std::endl;
+
+	std::cout << ClapTrapA << "\n" << DiamondTrapB << std::endl;
+
+	DiamondTrapB.beRepaired(5);
+
+	std::cout << std::endl;
+
+	std::cout << ClapTrapA << "\n" << DiamondTrapB << std::endl;
+
+	DiamondTrapB.highFivesGuys();
+	DiamondTrapB.guardGate();
+	DiamondTrapB.whoAmI();
+	std::cout << std::endl;
+
+
+
+	return(0);
 }

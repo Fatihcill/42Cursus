@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 11:39:37 by fcil              #+#    #+#             */
-/*   Updated: 2022/08/13 23:51:52 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/10 14:36:22 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,11 @@ void ScavTrap::attack(const std::string &target)
 	if (this->_hitPoints <= 0 || this->_energyPoints <= 0)
 		std::cout << "ScavTrap:	" << this->_name << ", you already dead" << std::endl;
 	else
-		std::cout << "ScavTrap:	" << this->_name << " attacks " << target <<", causing " << this->_attackDamage << " points of damage!" << std::endl;
+	{
+		std::cout << "ScavTrap:	" << this->_name << " attacks " << target <<
+		", causing " << this->_attackDamage << " points of damage!" << std::endl;
+		this->_energyPoints--;
+	}
 }
 
 void ScavTrap::guardGate(void) const

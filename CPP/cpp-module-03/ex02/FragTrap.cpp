@@ -6,15 +6,15 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 17:41:47 by fcil              #+#    #+#             */
-/*   Updated: 2022/08/11 17:44:43 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/10 14:54:08 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(/* args */)
+FragTrap::FragTrap()
 {
-	std::cout << "FragTrap: default constructor has been called" << std::endl;
+	std::cout << "FragTrap:	default constructor has been called" << std::endl;
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
 	this->_attackDamage = 30;

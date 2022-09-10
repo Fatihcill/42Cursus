@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 11:39:37 by fcil              #+#    #+#             */
-/*   Updated: 2022/08/11 17:27:50 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/10 14:36:22 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,11 @@ void ScavTrap::attack(const std::string &target)
 	if (this->_hitPoints <= 0 || this->_energyPoints <= 0)
 		std::cout << "ScavTrap:	" << this->_name << ", you already dead" << std::endl;
 	else
-		std::cout << "ScavTrap:	" << this->_name << " attacks " << target <<", causing " << this->_attackDamage << " points of damage!" << std::endl;
+	{
+		std::cout << "ScavTrap:	" << this->_name << " attacks " << target <<
+		", causing " << this->_attackDamage << " points of damage!" << std::endl;
+		this->_energyPoints--;
+	}
 }
 
 void ScavTrap::guardGate(void) const
@@ -50,11 +54,8 @@ ScavTrap::ScavTrap(const std::string &name)
 
 ScavTrap::ScavTrap(const ScavTrap &s)
 {
-	std::cout << "ScavTrap:	copy Constructor has been called" << std::endl;
-	this->_name = s._name;
-	this->_hitPoints = s._hitPoints;
-	this->_energyPoints = s._energyPoints;
-	this->_attackDamage = s._attackDamage;
+	std::cout << "ScavTrap:	copy ConstructoOr has been called" << std::endl;
+	*this = s;
 }
 
 ScavTrap::~ScavTrap(void)

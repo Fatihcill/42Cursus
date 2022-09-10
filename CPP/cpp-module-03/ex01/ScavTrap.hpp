@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 11:37:44 by fcil              #+#    #+#             */
-/*   Updated: 2022/08/11 17:25:42 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/10 15:01:47 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ public:
 	ScavTrap(void);
 	ScavTrap(const std::string &name);
 	ScavTrap(const ScavTrap &s);
-	virtual ~ScavTrap(void);
+	~ScavTrap(void);
 };
