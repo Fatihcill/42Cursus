@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/12 12:46:30 by fcil              #+#    #+#             */
-/*   Updated: 2022/09/11 15:10:51 by fcil             ###   ########.fr       */
+/*   Created: 2022/08/14 14:33:27 by fcil              #+#    #+#             */
+/*   Updated: 2022/08/14 15:12:12 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+ #pragma once
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+ #include "WrongAnimal.hpp"
 
-class Dog : public Animal
-{
-private:
-	Brain	*brain;
-public:
-	Dog(void);
-	Dog(Dog const &d);
-	virtual ~Dog();
-	Dog		&operator = (Dog const &d);
-	void	makeSound(void) const;
-	Brain	*getBrain() const;
+ class WrongCat : public WrongAnimal
+ {
+ public:
+	WrongCat(void);
+	WrongCat(WrongCat const &wc);
+	virtual ~WrongCat();
+	WrongCat	&operator = (WrongCat const &wc);
+	void		makeSound(void) const;
 };

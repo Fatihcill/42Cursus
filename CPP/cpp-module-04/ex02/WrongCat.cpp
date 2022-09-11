@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 14:40:10 by fcil              #+#    #+#             */
-/*   Updated: 2022/09/11 15:59:43 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/11 16:05:22 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 WrongCat::WrongCat(void) : WrongAnimal()
 {
-	this->setType("WrongCat");
 	std::cout << "WrongCat:	Default Constructed" << std::endl;
+	this->setType("WrongCat");
 }
 
 WrongCat::WrongCat(WrongCat const &wc) : WrongAnimal(wc)
 {
-	*this = wc;
 	std::cout << "WrongCat:	Copy Constructed" << std::endl;
+	*this = wc;
 }
 
 WrongCat::~WrongCat()
@@ -31,8 +31,8 @@ WrongCat::~WrongCat()
 
 WrongCat& WrongCat::operator = (WrongCat const &wc)
 {
-	this->setType(wc.getType());
 	std::cout << "WrongCat:	Assigned." << std::endl;
+	this->setType(wc.getType());
 	return (*this);
 }
 

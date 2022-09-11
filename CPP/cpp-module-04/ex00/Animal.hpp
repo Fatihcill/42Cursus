@@ -6,26 +6,27 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 12:22:56 by fcil              #+#    #+#             */
-/*   Updated: 2022/08/14 15:12:27 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/11 14:55:21 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "string.h"
-#include "iostream"
+#include <iostream>
+#include <string>
 
 class Animal
 {
 protected:
-	std::string _type;
+	std::string type;
 
 public:
-	std::string			getType(void) const;
-	void				setType(const std::string &type);
-	virtual void		makeSound(void) const;
-	Animal				&operator = (const Animal &a);
+	virtual Animal	&operator = (const Animal &a);
 	Animal(void);
 	Animal(const Animal &a);
 	virtual ~Animal();
+
+	virtual void makeSound() const;
+	std::string getType() const;
+	void		setType(const std::string &type);
 };

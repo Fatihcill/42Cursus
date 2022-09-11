@@ -6,37 +6,46 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 14:26:36 by fcil              #+#    #+#             */
-/*   Updated: 2022/09/11 15:58:07 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/11 16:04:21 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog(void) : Animal()
+Dog::Dog(void)
 {
-	this->setType("Dog");
 	std::cout << "Dog:		Default Constructed" << std::endl;
+	this->setType("Dog");
+	this->brain = new Brain();
 }
 
-Dog::Dog(Dog const &d) : Animal(d)
+Dog::Dog(Dog const &d)
 {
-	*this = d;
 	std::cout << "Dog:		Copy Constructed" << std::endl;
+	this->brain = new Brain();
+	*this = d;
 }
 
 Dog::~Dog()
 {
+	delete (this->brain);
 	std::cout << "Dog:		Deleted..." << std::endl;
 }
 
 Dog& Dog::operator = (Dog const &d)
 {
-	this->setType(d.getType());
 	std::cout << "Dog:		Assigned." << std::endl;
+	this->setType(d.getType());
+	*(this->brain) = *(d.brain);
 	return (*this);
 }
 
 void Dog::makeSound(void) const
 {
 	std::cout << "Dog:		Hav Hav" << std::endl;
+}
+
+Brain	*Dog::getBrain() const
+{
+	return (this->brain);
 }

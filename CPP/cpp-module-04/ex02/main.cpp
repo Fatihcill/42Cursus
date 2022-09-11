@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 12:16:38 by fcil              #+#    #+#             */
-/*   Updated: 2022/09/11 16:02:14 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/11 16:06:05 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@ int main()
 	Animal *tab[4];
 	Brain *cat_brain;
 	Brain *dog_brain;
-
-	Dog a;
-	std::cout << "----------------" << std::endl;
-	Dog b(a);
-	std::cout << "----------------" << std::endl;
 
 	for (int i = 0; i < 4; i++)
 	{
@@ -59,12 +54,6 @@ int main()
 	delete tab[1];
 	delete tab[2];
 	delete tab[3];
-
-	std::cout << "===================================" << std::endl;
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	delete j;
-	delete i;
 
 	return (0);
 }

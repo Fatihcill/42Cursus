@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 14:35:59 by fcil              #+#    #+#             */
-/*   Updated: 2022/08/14 15:10:42 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/11 14:57:35 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 std::string WrongAnimal::getType(void) const
 {
-	return (this->_type);
+	return (this->type);
 }
 
 void WrongAnimal::setType(const std::string &type)
 {
-	this->_type = type;
+	this->type = type;
 }
 
 void WrongAnimal::makeSound(void) const
@@ -29,7 +29,7 @@ void WrongAnimal::makeSound(void) const
 
 WrongAnimal& WrongAnimal::operator = (const WrongAnimal &wa)
 {
-	this->_type = wa.getType();
+	this->setType(wa.getType()); 
 	std::cout << "WrongAnimal:	Assigned." << std::endl;
 	return (*this);
 }

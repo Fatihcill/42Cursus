@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 14:33:48 by fcil              #+#    #+#             */
-/*   Updated: 2022/08/14 15:12:05 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/11 14:55:17 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,15 @@
 class WrongAnimal
 {
 protected:
-	std::string _type;
+	std::string type;
+
 public:
-	std::string			getType(void) const;
-	void				setType(const std::string &type);
-	void				makeSound(void) const;
-	WrongAnimal			&operator = (const WrongAnimal &wa);
-	WrongAnimal(const WrongAnimal &wa);
-	WrongAnimal(/* args */);
+	virtual WrongAnimal	&operator = (const WrongAnimal &a);
+	WrongAnimal(void);
+	WrongAnimal(const WrongAnimal &a);
 	virtual ~WrongAnimal();
+
+	virtual void makeSound() const;
+	std::string getType() const;
+	void		setType(const std::string &type);
 };

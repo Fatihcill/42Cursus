@@ -6,20 +6,20 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 12:41:53 by fcil              #+#    #+#             */
-/*   Updated: 2022/09/11 16:01:06 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/11 16:04:16 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat(void) : Animal()
+Cat::Cat(void)
 {
 	std::cout << "Cat:		Default Constructed" << std::endl;
 	this->setType("Cat");
 	this->brain = new Brain();
 }
 
-Cat::Cat(Cat const &c) : Animal(c)
+Cat::Cat(Cat const &c)
 {
 	std::cout << "Cat:		Copy Constructed" << std::endl;
 	this->brain = new Brain();
