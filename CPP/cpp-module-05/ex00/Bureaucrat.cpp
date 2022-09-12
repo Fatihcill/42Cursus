@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 12:00:32 by fcil              #+#    #+#             */
-/*   Updated: 2022/09/12 12:59:52 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/12 13:05:12 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void Bureaucrat::incrementGrade()
 
 void Bureaucrat::decrementGrade()
 {
-	if (this->_grade + 1 < LOWEST)
+	if (this->_grade + 1 > LOWEST)
 		throw Bureaucrat::GradeTooLowException();
 	this->_grade++;
 
