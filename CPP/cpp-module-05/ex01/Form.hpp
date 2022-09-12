@@ -6,13 +6,15 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 13:46:52 by fcil              #+#    #+#             */
-/*   Updated: 2022/09/12 14:56:35 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/12 15:02:31 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {

@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 21:39:02 by fcil              #+#    #+#             */
-/*   Updated: 2022/09/12 12:44:58 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/12 13:59:01 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class Bureaucrat
 		class GradeTooHighException : public std::exception
 		{
 			public:
-				const char*	what()	const throw()
+				virtual const char*	what()	const throw()
 				{
 					return ("Grade is too High.");
 				}
@@ -48,7 +48,7 @@ class Bureaucrat
 		class GradeTooLowException : public std::exception
 		{
 			public:
-				const char*	what()	const throw()
+				virtual const char*	what()	const throw()
 				{
 					return ("Grade is too Low.");
 				}

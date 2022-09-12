@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 12:00:32 by fcil              #+#    #+#             */
-/*   Updated: 2022/09/12 14:59:31 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/12 15:15:06 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void Bureaucrat::signForm(Form &form)
 	if (form.getSignGrade() >= this->getGrade())
 	{
 		form.setSignedResult(true);
-		std::cout << "<" << this->getName() << "> signs <" <<
+		std::cout << "<" << this->getName() << "> signed <" <<
 		form.getName() << ">" << std::endl; 
 	}
 	else
