@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 14:11:13 by fcil              #+#    #+#             */
-/*   Updated: 2022/09/12 16:03:35 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/12 17:14:06 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void Form::setFormTarget(std::string target)
 void Form::beSigned(Bureaucrat const &b)
 {
 	if (this->getSignGrade() < b.getGrade())
-		throw	GradeTooLowException();
+		throw	Form::GradeTooLowException();
 	else
 		this->_signed = true;
 }
@@ -92,11 +92,12 @@ void Form::execute(Bureaucrat const &executor) const
 		return ;
 	}
 	executeForm();
+	std::cout << executor.getName() << " executed " << this->getName() << std::endl;
 }
 
 std::ostream& operator<<(std::ostream &o, Form const &f)
 {
-	o << f.getName() << "Form:" << std::endl;
+	o << f.getName() << " Form:" << std::endl;
 	o << "Status: " << f.getSignedResult() << std::endl;
 	o << "Grade To Sign: " << f.getSignGrade() << std::endl;
 	o << "Grade To Execute: " << f.getExecGrade() << std::endl;

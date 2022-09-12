@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 16:10:36 by fcil              #+#    #+#             */
-/*   Updated: 2022/09/12 16:45:12 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/12 17:11:19 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,9 @@ void ShrubberyCreationForm::executeForm() const
 			   "                `}\n"
 			   "                 {"
 			<< std::endl;	
+}
+
+Form *ShrubberyCreationForm::clone(std::string _target)
+{
+	return (new ShrubberyCreationForm(_target));
 }

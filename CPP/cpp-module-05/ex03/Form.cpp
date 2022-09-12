@@ -6,7 +6,7 @@
 /*   By: fcil <fcil@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 14:11:13 by fcil              #+#    #+#             */
-/*   Updated: 2022/09/12 17:14:42 by fcil             ###   ########.fr       */
+/*   Updated: 2022/09/12 17:14:34 by fcil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,37 @@ int Form::getExecGrade(void) const
 	return (this->_gradeToExecute);
 }
 
+std::string Form::getFormTarget() const
+{
+	return (this->target);
+}
+
+void Form::setFormTarget(std::string target)
+{
+	this->target = target;
+}
+
 void Form::beSigned(Bureaucrat const &b)
 {
 	if (this->getSignGrade() < b.getGrade())
-		throw	GradeTooLowException();
+		throw	Form::GradeTooLowException();
 	else
 		this->_signed = true;
 }
 
+void Form::execute(Bureaucrat const &executor) const
+{
+	if (executor.getGrade() > this->getExecGrade())
+		throw Form::GradeTooLowException();
+	if (!this->getSignedResult())
+	{
+		std::cout << "<" << this->getName() << "> cannot be executed by <" << executor.getName()
+		<< "> because the for is not signed" << std::endl;
+		return ;
+	}
+	this->executeForm();
+	std::cout << executor.getName() << " executed " << this->getName() << std::endl;
+}
 
 std::ostream& operator<<(std::ostream &o, Form const &f)
 {
