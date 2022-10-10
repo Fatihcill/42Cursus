@@ -4,3 +4,6 @@
 [submodule "minishell"]
 	path = minishell
 	url = https://github.com/cryonayes/minishell.git
+[submodule "cub3d"]
+	path = cub3d
+	url = git@github.com:Fatihcill/cub3d.git
