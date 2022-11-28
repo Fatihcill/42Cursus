@@ -7,3 +7,6 @@
 [submodule "cub3d"]
 	path = cub3d
 	url = git@github.com:Fatihcill/cub3d.git
+[submodule "ft_containers"]
+	path = ft_containers
+	url = https://github.com/Fatihcill/ft_containers.git
