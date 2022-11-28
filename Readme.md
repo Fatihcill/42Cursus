@@ -32,7 +32,12 @@
 | Inception | [![fcil's 42 Inception Score](https://badge42.vercel.app/api/v2/cl311k8l3001109mcdj1ift97/project/2897432)](https://github.com/JaeSeoKim/badge42)
 | Inception | [![fcil's 42 Inception Score](https://badge42.vercel.app/api/v2/cl311k8l3001109mcdj1ift97/project/2897432)](https://github.com/JaeSeoKim/badge42)
 | Inception | [![fcil's 42 Inception Score](https://badge42.vercel.app/api/v2/cl311k8l3001109mcdj1ift97/project/2897432)](https://github.com/JaeSeoKim/badge42)
-</td><td style="padding:0; margin:0;">
+
+</td></tr> </table>
+
+<table  align="center">
+
+<td style="padding:0; margin:0;">
 
 |Exam|Score| 
 :-------|:-------|
