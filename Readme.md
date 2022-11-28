@@ -5,7 +5,7 @@
 
 <table  align="center">
 
-<tr style="display:flex; justify-content:space-around;"><td style="padding:0;">
+<tr>
 <td style="padding:0; margin:0;">
 
 |Project|Score| 

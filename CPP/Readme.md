@@ -7,7 +7,7 @@
 
 |CPP|Score| 
 :------------|:------------|
-| CPP00 <img width=450/>| [![fcil's 42 CPP Module 00 Score](https://badge42.vercel.app/api/v2/cl311k8l3001109mcdj1ift97/project/2762258)](https://github.com/JaeSeoKim/badge42)|
+| CPP00 <img width=350/>| [![fcil's 42 CPP Module 00 Score](https://badge42.vercel.app/api/v2/cl311k8l3001109mcdj1ift97/project/2762258)](https://github.com/JaeSeoKim/badge42)|
 | CPP01| [![fcil's 42 CPP Module 01 Score](https://badge42.vercel.app/api/v2/cl311k8l3001109mcdj1ift97/project/2765885)](https://github.com/JaeSeoKim/badge42)|
 | CPP02 | [![fcil's 42 CPP Module 02 Score](https://badge42.vercel.app/api/v2/cl311k8l3001109mcdj1ift97/project/2773689)](https://github.com/JaeSeoKim/badge42)|
 | CPP03| [![fcil's 42 ft_printf Score](https://badge42.vercel.app/api/v2/cl311k8l3001109mcdj1ift97/project/2496505)](https://github.com/JaeSeoKim/badge42)|
