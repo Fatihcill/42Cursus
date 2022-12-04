@@ -1,9 +1,14 @@
-# Temel Komutlar:
+# DOCKER NOTLARI:
 
 
 > - `docker info:`
 	<p>Docker üzerinde Mevcut işletim sistemi hakkında bilgiler verir.</p>
 
+> - `docker search [image_name]`
+	<p>verilen isimdeki tüm image leri sıralar</p>
+
+> - `docker pull [image_name]`
+	<p>verilen isimdeki image indirilir</p>
 
 > - `docker ps -a | docker container ls -a`
 	<p>ortamımızda çalışan tüm containerları gösterir.<br>
@@ -53,29 +58,77 @@
 > - `docker run -d -p 5000:80`
 	<p>-p -> port mapping yapmamızı sağlar (5000 host portu) (80 tcp portu)</p>
 
-> - `docker container port [id]`
-	<p>id deki portu gösterir</p>
+> - `docker container port [container_id]`
+	<p>verilen id deki portu gösterir</p>
 
 ## DOCKER FILE:
-bizim image oluşturmak için oluşturduğumuz bir dosyadır.
+Docker Image lar işletim sisteminde var olan tüm bilgiler bulunur ve Dockerfile Image oluşturmak için oluşturduğumuz bir dosyadır.
+> - `DOCKER FILE KOMUTLARI`
+	<p> 
+	FROM -> base image mizi göstermek için oluşturuluşmuş komuttur.
+		<pre>FROM centos:7</pre>
+	LABEL -> isimlendirme yapmaya yarar
+		<pre>LABEL key value</pre>
+	EXPOSE -> containerımızın hangi port üzerinden yayın yapacağını belirtmemize yarar
+		<pre>- EXPOSE 80/TCP </pre>
+	RUN -> base image kurulduktan sonra çalıştırılacak komutlar.
+		<pre>
+		- RUN yum -y update
+		- RUN yum -y install nano
+		</pre>
+	CMD -> docker container ayağa kalktığında verilen komutu çalıştırır
+		<pre>- CMD ping -c 10 127.0.0.1</pre>
+	ENV	-> container ortam değişkeni tanımlamamıza yarar.<br><br>
+	ADD -> local veya online dan veya env den containerımıza dosya kopyalamamıza yarar
+		<pre>- ADD /bin/xyz /xyz</pre>
+	VOLUME -> containerda ki datalarımın silinmesini istemiyorsak
+		<pre>- VOLUME /MOUNT</pre>
+	WORKDIR -> container çalışmaya başladığında nerede çalışmaya başlaması gerektiğini belirliyoruz.
+		<pre>- WORKDIR /www/html</pre>
+	MKDIR -> Klasör oluşturmamıza yarar<br><br>
+	Örnek;
+		<pre>`FROM ubuntu`
+		`RUN apt-get -y update`
+		`RUN apt-get -y upgrade`
+		`RUN apt-get -y install python3 python3-pip`
+		`COPY . /app`
+		`WORKDIR /app`
+		`EXPOSE 5000`
+		</pre></p>
+
+
+> - `docker images`
+	<p>docker da varolan imagelerimizi gösterir</p>
+
 > - `docker image build -t [name] .`
 	<p>docker file ile name adında bir image oluşturur</p>
+	
 > - `docker container run -d -P [name]`
 	<p>name adında ki image miz ile container kurar.<br>
 	-P -> EXPOSE ile port belirttiğimizde bu portu alması için bu arguman kullanılır</p>
 
+## DOCKER Multi-Stage:
+- Dockerfile da ki verimsizlikleri ortadan kaldırır.
+- Boyut açısından yüksek boyutlu imagelar ile çalışmak zorunda kalmayız.
+
 ## DOCKER PLUGIN:
 docker enginenin özelliklerini genişletmek için kullanılır.
-> - `docker plugin install [plugin name]`
+> - `docker plugin install [plugin_name]`
 	<p>verilen isimde ki plugin yüklenir.</p>
 
 > - `docker plugin ls`
 	<p>yüklenilen pluginleri listeler</p>
 
-> - `docker plugin disable/enable [name]`
+> - `docker plugin disable/enable [plugin_name]`
 	<p>verilen isimdeki plugini aktif veya deaktif eder.</p>
 
-> - `docker plugin rm [name]`
+> - `docker plugin rm [plugin_name]`
 	<p>verilen isimdeki plugini kaldırır.</p>
 
+## DOCKER Repostories:
 
+> - `docker login`
+	<p>docker hub profilimiz ile docker arasında bağlantı kurmak için yapılır</p>
+
+> - `docker push`
+	<p>localde oluşturduğum imageleri repomuza göndermemize yarar</p>
