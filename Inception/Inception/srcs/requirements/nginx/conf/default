@@ -1,0 +1,26 @@
+root /var/www/wordpress;
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+
+    server_name fcil.42.fr;
+
+    ssl_protocols TLSv1.2 TLSv1.3;
+
+    ssl_certificate /etc/ssl/certs/nginx.crt;
+    ssl_certificate_key /etc/ssl/private/nginx.key;
+
+    index index.php;
+
+    location / {
+        autoindex on;
+        autoindex_format html;
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass wordpress:9000;
+    }
+}

@@ -1,0 +1,128 @@
+version: "3.9"
+
+networks: #network kurma
+  incepnet:
+    name: incepnet
+    driver: bridge
+
+volumes: #yedekleme
+  wp:
+    name: wp
+    driver: local #localde olduğunu belirtiyoruz ip de girebilirdik
+    driver_opts:
+      type: none
+      o: bind #eğer böyle bir şey varsa yeniden oluşturulur
+      device: /home/fcil/data/wp #volume path
+
+  db:
+    name: db
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/fcil/data/db
+
+  prt:
+    name: prt
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/fcil/data/prt
+
+services: #containerlar
+  mariadb:
+    container_name: mariadb
+    build: ./requirements/mariadb/ #container dockerfile path
+    restart: always #kapansa bile yeniden açılmasını sağlıyor
+    env_file: .env #environment path
+    volumes:
+      - db:/var/lib/mysql #yedeklenecek dir volume
+    networks:
+      - incepnet  #kullanılacak network
+
+  wordpress:
+    container_name: wordpress
+    build: ./requirements/wordpress/
+    env_file: .env
+    volumes:
+      - wp:/var/www/wordpress
+    networks:
+      - incepnet
+    depends_on:
+      - mariadb
+
+  nginx:
+    container_name: nginx
+    build: ./requirements/nginx/
+    volumes:
+      - wp:/var/www/wordpress
+    networks:
+      - incepnet
+    depends_on:
+      - wordpress
+    ports:
+      - "443:443" # local port / exported port
+
+  redis:
+    container_name: redis
+    build: ./requirements/bonus/redis/
+    restart: always
+    env_file: .env
+    networks:
+      - incepnet
+    depends_on:
+      - nginx
+    ports:
+      - "6379:6379"
+
+  ftp-server:
+    container_name: ftp-server
+    build: ./requirements/bonus/ftp-server/
+    restart: always
+    env_file: .env
+    volumes:
+      - wp:/home/fcil
+    networks:
+      - incepnet
+    depends_on:
+      - nginx
+    ports:
+      - "21:21"
+      - "21000-21010:21000-21010" #port aralığı
+
+  site:
+    container_name: site
+    build: requirements/bonus/site/
+    restart: always
+    networks:
+      - incepnet
+    depends_on:
+      - nginx
+    ports:
+      - "1111:1111"
+
+  adminer:
+    container_name: adminer
+    build: ./requirements/bonus/adminer/
+    restart: always
+    depends_on:
+      - mariadb
+    networks:
+      - incepnet
+    ports:
+      - "8080:8080"
+  
+  portainer:
+    container_name: portainer
+    build: ./requirements/bonus/portainer/
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - prt:/data
+    restart: always
+    depends_on:
+      - wordpress
+    networks:
+      - incepnet
+    ports:
+      - "9443:9443"
