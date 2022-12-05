@@ -105,7 +105,8 @@ Docker Image lar işletim sisteminde var olan tüm bilgiler bulunur ve Dockerfil
 	
 > - `docker container run -d -P [name]`
 	<p>name adında ki image miz ile container kurar.<br>
-	-P -> EXPOSE ile port belirttiğimizde bu portu alması için bu arguman kullanılır</p>
+	-P -> EXPOSE ile port belirttiğimizde bu portu alması için bu arguman kullanılır<br>
+	-v -> Volume ataması yapmamıza yarar</p>
 
 ## DOCKER Multi-Stage:
 - Dockerfile da ki verimsizlikleri ortadan kaldırır.
@@ -132,3 +133,118 @@ docker enginenin özelliklerini genişletmek için kullanılır.
 
 > - `docker push`
 	<p>localde oluşturduğum imageleri repomuza göndermemize yarar</p>
+
+> - `docker login`
+	<p>docker hub profilimiz ile docker arasında bağlantı kurmak için yapılır</p>
+
+> - `docker push`
+	<p>localde oluşturduğum imageleri repomuza göndermemize yarar</p>
+
+## DOCKER Volume:
+- Container silinse dahi içerisindeki dataları tutmak için volume kullanırız.
+- Docker volume içerisindeki datalar birden fazla container kullanabilir.
+- Docker Image güncellemesi yapılsa dahi volume içerisindeki datalar değişmez
+- Docker volume içerisindeki datalar taşınabilir ve yedeklenebilir.
+- Docker volumes container boyutunu artırmaz.
+
+bir volume oluşturulduğunda (Docker Root Dir) de gözükür (bknz. docker info)
+
+> - `docker volume create --name test1`
+	<p>test1 adında bir volume oluşturulur.
+
+> - `docker container run -it -v test1:/www/website centos:7 bash`
+	<p>örnek kullanım.<br>
+	test1: volumemizin oluştulacağı path <br>
+	test1:/www/website:ro <br>
+	ro -> readonly şeklinde de oluşturabiliriz</p>
+> - `docker volume inspect [name]`
+	<p>verilen volume ismi hakkında bilgiler verir</p>
+> - `docker volume ls`
+	<p>docker volume ları listeler</p>
+
+Docker Volume da External Stroge kurabilmek için ilk olarak nfs alanlar kullanabiliriz. 
+> - `docker volume create --opt type=nfs --opt o=addr=192.168.1.10,rw,nfsserver4 --opt device=:/home/nfsshare nfs-volume`
+	<p>opt -> özellik belirlemeye yarar
+		<pre>type -> dosya sistemimizi nfs olarak ayarlıyoruz
+		o=addr -> dışarıdan erişmek için bir adres veriyoruz
+		,rw -> read write 
+		,nfsserver4 -> verilen adresin nfsserver4 kullanmasını istiyoruz
+		device -> fileshare'nin konumu neresi bunu belirliyoruz</pre></p>
+
+> - `docker rm [name]`
+	<p>volume silmek için öncelikle o volumeyi kullanan containerları silemeliyiz.
+	verilen isimdeki volume silinir.</p>
+
+## DOCKER Network:
+### CNM(Container Network Model)
+- Aynı ağ üzerindeki containerların birbiri ile iletişim kurmasını sağlar.
+- Çoklu network trafiğinin bölümlere ayrılmasını sağlar.
+- Containerların birden fazla ağa eklenmesini sağlar
+
+![plot](Container-Networking-Model.png)
+- Network Sandbox -> Container yönetim arayüzü, ip, mac adresleri ayarlamaları yapılır.
+- Endpoint -> Sandbox'ın dış networke bağlanmasını sağlar. ikinci bir network'e bağlanmak için ikinci bir endpoint oluşturulabilinir
+- Network -> birbiri ile iletişim kuran endpointler temsil edilir.
+- Driver -> ağın sahibidir, çeşitli kullanım durumlarında dağıtım sürümünü karşılamak için burayı kullanırız, ağın yöneticisi diyebiliriz.
+
+> - `docker network ls`
+	<p>bütün networkleri görüntülememizi sağlar.</p>
+> - `docker network inspect [name]`
+	<p>verilen isimdeki network hakkında detayları görüntülememizi sağlar</p>
+> - `docker run centos /usr/sbin/ip route`
+	<p>verilen isimdeki network hakkında detayları görüntülememizi sağlar</p>
+> - `docker network create test1network`
+	<p>test1network adında bir network oluşturur</p>
+> - `docker container run -it --net test1network centos bash`
+	<p>oluşturulan container test1network üne eklenir</p>
+> - `docker network create --subnet 192.168.100.0/24 --gateway 192.168.100.1 --driver [bridge/host/null] test2network`
+	<p>--subnet -> belli bir subnet verir<br>
+	--gateway -> gateway belirlememize yarar<br>
+	--driver -> nasıl bir türde driver belirleyeceğimize yarar bridge/host/null</p>
+> - `docker network rm test1`
+	<p>test1 networkünü silir, silinmesi için networkün kullanılmaması gerekir</p>
+> - `docker network create -d macvlan --subnet=192.168.0.0/24 --gateway 192.168.0.1 -o parent=eth0 macvlan-mynet`
+	<p>--subnet -> belli bir subnet verir<br>
+	--gateway -> gateway belirlememize yarar<br>
+	fiziksel ağa bu şekilde ağımızı bağlayabiliriz.</p>
+
+## Docker Compose
+
+- Docker compose çok container lı yapıları çalıştırmak ve hızlı şekilde publish etmek için kullanılan bir docker özelliğidir. Kompleks uygulamalar geliştirirken comtainerların bağımsız şekilde ilerlemesini istediğimizde bu özelliği kullanabiliriz. 
+- .yml dosyaları ile tüm hizmetleri başlatabiliriz, dockerfile gibidir ancak docker compose versiyonuna göre bir containerımda hangi özellikleri başlatacağımı hızlı bir şekilde hazırlamamıza yarar.
+
+> - `docker compose --version`
+<p> mevcut docker compose'un versiyonunu gösterir</p>
+
+> - `docker-compose build\up`
+<p>build veya up aynı işlevdedir, up komutu verildiğinde build edilmediyse ilk olarak build edilmiş olunur ve servisi ayağa kaldırır.</p>
+
+> - `docker-compose down`
+<p>compose tarafından yaratılan containerları sistemden kaldırır. parametreler ile volume vs. kaldırılabilinir.</p>
+
+> - `docker-compose ps`
+<p>servislerin çıktısını gösterir. </p>
+
+> - `docker-compose run`
+<p>compose tarafından oluşturulan bir servis için ilgili aksiyonu almamıza yarar.</p>
+
+> - `docker-compose exec [command]`
+<p>çalışmakta olan containerda bir execute çalıştırır</p>
+
+> - `DOCKER COMPOSE KOMUTLARI`
+	<p> 
+	version -> ilk stepde versiyon bilgisi verilmeli. 
+		<pre> version "2.6"</pre>
+	services: -> servis yapılandırılmasını sağlar
+		<pre>
+		services:
+				<pre>nginx-service:
+				build: ./Website
+				depends_on:
+				- ruby-service
+				</pre>
+		</pre>
+		depends_on: servisleri birbirine bağlar.<br>
+		build: docker file pathini veririz</p>
+
+
