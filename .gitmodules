@@ -13,3 +13,6 @@
 [submodule "ft_irc"]
 	path = ft_irc
 	url = https://github.com/cryonayes/ft_irc.git
+[submodule "Inception"]
+	path = Inception
+	url = https://github.com/Fatihcill/Inception.git
