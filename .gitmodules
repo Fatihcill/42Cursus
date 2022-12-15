@@ -10,9 +10,6 @@
 [submodule "ft_containers"]
 	path = ft_containers
 	url = https://github.com/Fatihcill/ft_containers.git
-[submodule "ft_irc"]
-	path = ft_irc
-	url = https://github.com/cryonayes/ft_irc.git
 [submodule "Inception"]
 	path = Inception
 	url = https://github.com/Fatihcill/Inception.git
