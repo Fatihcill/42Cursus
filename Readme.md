@@ -30,8 +30,8 @@
 | cub3d | [![fcil's 42 cub3d Score](https://badge42.vercel.app/api/v2/cl311k8l3001109mcdj1ift97/project/2802725)](https://github.com/JaeSeoKim/badge42)
 | ft_containers | [![fcil's 42 ft_containers Score](https://badge42.vercel.app/api/v2/cl311k8l3001109mcdj1ift97/project/2883169)](https://github.com/JaeSeoKim/badge42)
 | Inception | [![fcil's 42 Inception Score](https://badge42.vercel.app/api/v2/cl311k8l3001109mcdj1ift97/project/2897432)](https://github.com/JaeSeoKim/badge42)
-| Inception | [![fcil's 42 Inception Score](https://badge42.vercel.app/api/v2/cl311k8l3001109mcdj1ift97/project/2897432)](https://github.com/JaeSeoKim/badge42)
-| Inception | [![fcil's 42 Inception Score](https://badge42.vercel.app/api/v2/cl311k8l3001109mcdj1ift97/project/2897432)](https://github.com/JaeSeoKim/badge42)
+| ft_irc | [![fcil's 42 ft_irc Score](https://badge42.vercel.app/api/v2/cl311k8l3001109mcdj1ift97/project/2907001)](https://github.com/JaeSeoKim/badge42)
+| ft_transcendence | [![fcil's 42 ft_transcendence Score](https://badge42.vercel.app/api/v2/cl311k8l3001109mcdj1ift97/project/2911267)](https://github.com/JaeSeoKim/badge42)
 
 </td></tr> </table>
 
@@ -45,4 +45,5 @@
 | ExamRank 03| [![fcil's 42 Exam Rank 03 Score](https://badge42.vercel.app/api/v2/cl311k8l3001109mcdj1ift97/project/2605483)](https://github.com/JaeSeoKim/badge42)|
 | ExamRank 04| [![fcil's 42 Exam Rank 04 Score](https://badge42.vercel.app/api/v2/cl311k8l3001109mcdj1ift97/project/2813978)](https://github.com/JaeSeoKim/badge42)|
 | ExamRank 05| [![fcil's 42 Exam Rank 05 Score](https://badge42.vercel.app/api/v2/cl311k8l3001109mcdj1ift97/project/2842645)](https://github.com/JaeSeoKim/badge42)|
+| ExamRank 06| [![fcil's 42 Exam Rank 05 Score](https://badge42.vercel.app/api/v2/cl311k8l3001109mcdj1ift97/project/2842645)](https://github.com/JaeSeoKim/badge42)|
 </td></tr> </table>
