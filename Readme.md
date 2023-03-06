@@ -49,7 +49,7 @@
 </td></tr> </table>
 
 
-### Projele Özetleri:
+### Proje Özetleri:
 - [Libft](libft/):  Kısaca standart C kütüphanesinde ki bir çok fonksiyonu yeniden oluşturduğumuz bir programlama projesidir.
 
 - [Get_next_line](get_next_line/): C'de dosya I/O ve bellek yönetimi anlayışlarını geliştirmek için dosyayı satır satır okuyan bir fonksiyon oluşturmamız gereken bir projedir.
