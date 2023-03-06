@@ -66,16 +66,16 @@
 
 - [Philosophers](Philosophers/): Semaforlar veya muteksler gibi senkronizasyon mekanizmalarını kullanarak filozofların çatalları paylaşması ve kilitlenmeden kaçınması gereken bir senaryoyu simüle eden C'de eşzamanlı bir program yazmamızı gerektiren bir projedir.
 
-- [minishell](minishell/): Bash referans alınarak kendi shell programımızı yaptığımız bir projedir. 
+- [minishell](https://github.com/cryonayes/minishell): Bash referans alınarak kendi shell programımızı yaptığımız bir projedir. 
 
-- [Cub3d](cub3d/): Grafik programlama ve matematiksel kavramları anlamalarını geliştirmeyi amaçlayan, C ile raycasting tekniğini kullanarak sıfırdan basit bir 3 boyutlu bir FPS oyun oluşturmamızın istendiği bir projedir.
+- [Cub3d](https://github.com/Fatihcill/cub3d): Grafik programlama ve matematiksel kavramları anlamalarını geliştirmeyi amaçlayan, C ile raycasting tekniğini kullanarak sıfırdan basit bir 3 boyutlu bir FPS oyun oluşturmamızın istendiği bir projedir.
 
 - [Cpp Modules](CPP/): ileri düzey C++'a hazırlanmamızı amaçlayan, OOP (nesne yönelimli programlama), veri yapıları, algoritmalar ve yazılım tasarımı dahil olmak üzere C++'taki çeşitli konuları kapsayan bir dizi projelerdir.
 
-- [Inception](Inception/): nginx, WordPress ve Mysql gibi ortamları kullanarak Docker, container ortamlarının yönetimini öğrendiğimiz bir devops projesidir.
+- [Inception](https://github.com/Fatihcill/Inception): nginx, WordPress ve Mysql gibi ortamları kullanarak Docker, container ortamlarının yönetimini öğrendiğimiz bir devops projesidir.
 
-- [Ft_containers](ft_containers/): Veri yapılarını ve bellek ayırma tekniklerini kullanarak vector, list, map ve set gibi birkaç standart C++ container sınıflarının baştan kendi versiyonlarımızı yaptığımız bir projedir.
+- [Ft_containers](https://github.com/Fatihcill/ft_containers): Veri yapılarını ve bellek ayırma tekniklerini kullanarak vector, list, map ve set gibi birkaç standart C++ container sınıflarının baştan kendi versiyonlarımızı yaptığımız bir projedir.
 
-- [Ft_irc](ft_irc/): Ağ programlama, soket iletişimi gibi yeterliliklerimizi geliştirmeyi amaçlayan işlevsel bir Internet Relay Chat (IRC) sunucusu oluşturmamızın istendiği bir projedir.
+- [Ft_irc](https://github.com/cryonayes/ft_irc): Ağ programlama, soket iletişimi gibi yeterliliklerimizi geliştirmeyi amaçlayan işlevsel bir Internet Relay Chat (IRC) sunucusu oluşturmamızın istendiği bir projedir.
 
-- [Ft_transcendence](ft_transcendence/): Web geliştirme, sunucu-istemci iletişimi ve veri tabanı yönetimi konusundaki yeterliliklerimizi geliştirmeyi amaçlayan klasik "ping pong" adlı oyunu, çevrimiçi çok oyunculu oyun haline getirmemizin istendiği ve ayrıca web sitesine kullanıcılar arası mesajlaşma gibi işlevlerin yapılmasının istendiği oldukça detaylı bir grub projesidir.
+- [Ft_transcendence](https://github.com/cryonayes/ft_transcendence): Web geliştirme, sunucu-istemci iletişimi ve veri tabanı yönetimi konusundaki yeterliliklerimizi geliştirmeyi amaçlayan klasik "ping pong" adlı oyunu, çevrimiçi çok oyunculu oyun haline getirmemizin istendiği ve ayrıca web sitesine kullanıcılar arası mesajlaşma gibi işlevlerin yapılmasının istendiği oldukça detaylı bir grub projesidir.
